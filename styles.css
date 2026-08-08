@@ -431,3 +431,125 @@ body {
     height: 500px;
     z-index: 2;
 }
+
+/*menu*/
+/* ==========================================================================
+   MAIN MENU SECTION
+   ========================================================================== */
+
+#menu {
+    background-color: #E0E15F;
+    margin-top: 0;
+    padding-bottom: 50px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    padding: 20px 0; 
+    box-sizing: border-box;
+}
+
+#menu h2 {
+    margin-top: -60px;   
+    text-align: center;
+    color: #EF51B8;
+    font-family: 'Frogie', sans-serif;
+    font-size: 40px;
+    margin-bottom: 100px; 
+}
+
+#menu h2 span {
+    color: #E0E15F;
+    background-color: #EF51B8;
+    padding: 10px;
+    display: inline-block; 
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; 
+    box-sizing: border-box;
+}
+
+.pro-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.img-stack {
+    position: relative;
+    width: 100%;
+    height: 280px; 
+}
+
+#menu .blob {
+    position: absolute;
+    width: 80%;
+    max-width: 220px; 
+    height: auto;
+    z-index: 1;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#menu .tea {
+    position: absolute;
+    width: 100%;
+    max-width: 260px; 
+    height: auto;
+    z-index: 2;
+    bottom: 0px; 
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.pro-card h4 {
+    color: #EF51B8;
+    font-size: 15px;
+    margin: 20px 0 15px 0;
+    letter-spacing: 1px;
+}
+
+.pro-btn {
+    display: flex;
+    gap: 10px;
+}
+
+.pro-btn button {
+    padding: 6px 20px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid #EF51B8;
+    color: #EF51B8;
+}
+
+.btn-outline:hover {
+    background-color: #EF51B8;
+    color: white;
+}
+
+.btn-solid {
+    background-color: #EF51B8;
+    border: 1px solid #EF51B8;
+    color: #fefefb;
+}
+
+.btn-solid:hover {
+    background-color: #fefefb;
+    color: #EF51B8;
+}
