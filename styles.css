@@ -582,7 +582,7 @@ body {
 
 #pink-container {
     position: relative;
-    width: 90%;          
+    width: 80%;          
     max-width: 1100px;
     margin-bottom: 50px;
     margin-left:auto;
@@ -611,6 +611,7 @@ body {
     margin: 0;
     font-size: 15px;
     line-height: 1.2;
+    color: #fefefb;
 }
 
 .step-1 {
@@ -656,3 +657,71 @@ body {
 }
 
 
+/*review*/
+#review{
+    background-color: #EF51B8;
+    width: 100%;
+}
+
+.review-cards{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;            
+    gap: 80px; 
+    padding: 80px 50px;
+    margin: 0 auto; 
+    width: 90%;               
+    max-width: 1100px;         
+    gap: 25px;
+}
+
+
+.re-card {
+    flex: 1;
+    min-width: 0;                 
+    max-width: 300px;        
+    min-height: 200px;    
+    padding: 20px;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    box-sizing: border-box;
+    position: relative;
+    text-align: center;
+    background-color: #E0E15F;
+}
+
+#review h2{
+    font-family: 'Frogie', sans-serif;
+    font-size: 50px;
+    color: #fefefb;
+    padding-bottom: 0px;
+    text-align: center;
+    padding-top: 60px;
+}
+
+#review h2 span{
+    background-color: #E0E15F;
+    color: #EF51B8;
+    display: inline-block;
+    padding: 10px;
+}
+
+.re-card img{
+    width: 60px;
+    height: 50px;
+    position: absolute;
+    z-index: 10;
+    top: -10px;
+    left: -20px;
+}
+
+#review .re-card:nth-child(even) img {
+    top: auto;      
+    left: auto;     
+    bottom: -5px;  
+    right: -20px;   
+}
