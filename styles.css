@@ -572,11 +572,12 @@ body {
     display: inline-block; 
 }
 
-#pink-container img{
+#pink-container .banner-img{
     width: 100%;        
     height: auto;
     border-radius: 30px;
     display: block;
+    border:  5px solid #E0E15F;
 }
 
 #pink-container {
@@ -636,3 +637,22 @@ body {
     top: 65%;
     left: 90%;
 }
+
+.border-flower {
+    position: absolute;
+    width: 80px;     
+    height: 80px;
+    z-index: 10;      
+}
+
+.flower-left {
+    top: -20px;        
+    left: -20px;       
+}
+
+.flower-right {
+    bottom: -15px;    
+    right: -15px;      
+}
+
+
