@@ -198,7 +198,7 @@ body {
     margin-bottom: 20px;
 }
 
-.hero-left h2 span{
+.hero-left span{
     font-family:'Frogie','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 30px;
     color: #E0E15F;
@@ -724,4 +724,188 @@ body {
     left: auto;     
     bottom: -5px;  
     right: -20px;   
+}
+
+/*Location*/
+#location h2{
+    font-family: 'Frogie', sans-serif;
+    font-size: 50px;
+    color: #EF51B8;
+    padding-bottom: 0px;
+    text-align: center;
+    padding-top: 30px;
+}
+
+#location h2 span{
+    background-color: #EF51B8;
+    color: #E0E15F;
+    display: inline-block;
+    padding: 10px;
+}
+
+#loc-container h3{
+    color:#E0E15F;
+    font-size: 30px;
+}
+
+#loc-container{
+    display: flex;
+    flex-direction: row;
+    padding: 0 100px 50px 100px;
+    align-content: center;
+    align-items: stretch;
+    color: #fefefb;
+}
+
+#loc-container div{
+    background-color: #EF51B8;
+    border-radius: 20px 0 0 20px;
+    border: 3px solid #E0E15F;
+    border-right: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 40px;
+}
+
+#loc-container p b{
+    color:#E0E15F;
+}
+
+
+#loc-container li {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 30px;
+}
+
+#loc-container iframe{
+    border-radius: 20px;
+    border: 2px solid #E0E15F;
+    width: 500px; 
+    height: 100%; 
+    min-height: 450px;
+    
+    /* Rounded corners on the right side only */
+    border-radius: 0 20px 20px 0;
+    border: 3px solid #E0E15F;
+    border-left: none;
+}
+
+/* Footer Container */
+#footer {
+    background-color: #E0E15F; 
+    padding: 40px 100px 20px 100px;
+    font-family: sans-serif;
+}
+
+#footer .upper-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+#footer .footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: #333333;
+}
+
+#footer .footer-info .logo {
+    width: 200px;  
+    margin-top: -30px;
+    margin-left: -50px;
+}
+
+#footer .footer-info p {
+    margin: 0;
+    font-size: 14px;
+}
+
+#footer .footer-info .social-handle {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+#footer .footer-nav-promo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+#footer ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding-bottom: 30px;
+    gap: 25px;
+}
+
+#footer ul a {
+    text-decoration: none;
+    color: #1b1a1a;
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.2s;
+}
+
+#footer ul a:hover {
+    color: #EF51B8;
+}
+
+#footer .promo-card {
+    background-color: #EF51B8;
+    color: #FFFFFF;
+    padding: 25px 35px;
+    border-radius: 20px;
+    text-align: start;
+    max-width: 450px;
+    width: 100%;
+}
+
+#footer .promo-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+#footer .promo-card p {
+    margin: 0 0 15px 0;
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+#footer .promo-card button {
+    background-color: #E0E15F;
+    color: #333333;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+#footer .promo-card button:hover {
+    background-color: #ffffff;
+    transform: scale(1.03);
+}
+
+/* Bottom Bar: Copyright */
+#footer .lower-box {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 15px;
+    text-align: center;
+}
+
+#footer .lower-box p {
+    margin: 0;
+    font-size: 12px;
+    color: #555555;
 }
