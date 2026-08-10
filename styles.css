@@ -521,6 +521,12 @@ body {
     bottom: 0px; 
     left: 50%;
     transform: translateX(-50%);
+    transition: 0.3s ease-in;
+}
+
+#menu .tea:hover{
+     width: 120%;
+    max-width: 300px;
 }
 
 .pro-card h4 {
