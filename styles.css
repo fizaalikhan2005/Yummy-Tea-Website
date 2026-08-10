@@ -20,6 +20,7 @@ html, body {
     min-height: 100vh;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+    scroll-behavior: smooth;
     font-family:'Franklin Gothic', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -84,6 +85,8 @@ body {
 #navbar li a:hover {
     color: #E0E15F; 
     cursor: pointer;
+    transform: translate(-2px, -1px);
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 
 /*Hero*/
@@ -231,6 +234,8 @@ body {
     background-color: #ffffff;
     color: #E560B5;
     cursor: pointer;
+    transform: translate(-2px, -2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 
 /*About Us*/
@@ -296,7 +301,14 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     border-radius: 20px;
     box-sizing: border-box;
-    position: relative
+    position: relative;
+    transition: 0.2s ease;
+
+}
+
+.card:hover{
+    transform: translate(-2px, -2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 
 .card:nth-child(odd), .card:nth-child(odd) p {
@@ -541,6 +553,7 @@ body {
 .btn-outline:hover {
     background-color: #EF51B8;
     color: white;
+    transform: scale(1.06);
 }
 
 .btn-solid {
@@ -552,6 +565,7 @@ body {
 .btn-solid:hover {
     background-color: #fefefb;
     color: #EF51B8;
+    transform: scale(1.06);
 }
 
 
@@ -675,7 +689,6 @@ body {
     gap: 25px;
 }
 
-
 .re-card {
     flex: 1;
     min-width: 0;                 
@@ -692,6 +705,13 @@ body {
     position: relative;
     text-align: center;
     background-color: #E0E15F;
+    transition: 0.3s ease;
+}
+
+.re-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    transform: scale(1.06);
 }
 
 #review h2{
