@@ -90,104 +90,78 @@ body {
 }
 
 /*Hero*/
-#hero{
+/* --- HERO SECTION --- */
+
+#hero {
     background-image: url(img/cover.svg);
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
     position: relative;
     width: 100%;
     min-height: 100vh;
-    background-position: center;
     display: flex;
     align-items: center;
-    z-index: 1;
     justify-content: center; 
-    overflow: hidden;
+    z-index: 1;
+    overflow: hidden; 
 }
 
+/* 1. The Boundary Box */
 .hero-title-wrapper {
-    position: relative;
+    position: relative; 
     display: flex;
-    justify-content: center;
     align-items: center;
     width: 100%;
+    max-width: 1200px; 
     height: 100vh;
+    margin: 0 auto; 
 }
 
 #hero h1 {
     font-family: 'Bouncy Black', cursive, sans-serif;
     font-weight: 300;
-    font-size: 150px;
     letter-spacing: 8px;
+    margin: 0;
+    font-size: clamp(80px, 12vw, 150px); 
 }
-/*
-#yummy{
-    z-index: 1;
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    color:rgb(255, 230, 230);
-    transform: translate(-80%, -40%);
+
+#yummy span, #tea span {
+    color: #E0E15F;
 }
-*/
-#yummy{
-    z-index: 1;
+
+#yummy {
     position: absolute;
-    top: 25%;
+    z-index: 1;
+    top: 32%;
     left: 8%; 
     color: rgb(255, 230, 230);
 }
 
-#yummy span, #tea span{
-    color: #E0E15F;
-}
-/*
-#tea{
+#tea {
     position: absolute;
-    z-index: 3;
-    left: 50%;
-    bottom: 25%;
-    transform: translate(40%, 100%);
-    color:rgb(255, 230, 230);
-}*/
-
-#tea{
-    position: absolute;
-    z-index: 3;
-    right: 15%; 
-    bottom: -8%;
+    z-index: 3; 
+    bottom: 15%; 
+    right: 10%; 
     color: rgb(255, 230, 230);
 }
 
-/*
-#boba{
-    width: auto;
-    max-width: 90%;
-    max-height: 70vh;
-    height: 500px;
-    transform: translate(40%, 10%) rotate(25deg);
-    position: relative;
-    z-index: 2;
-    height: 500px;
-}
-*/
-
 #boba {
-    width: auto;
-    max-width: 90%;
-    max-height: 70vh;
-    height: 500px;
     position: absolute;
     z-index: 2;
-    right: 25%;  
-    bottom: 5%;  
+    right: 23%;  
+    bottom: 10%;  
     transform: rotate(25deg); 
+    width: auto;
+    height: auto;
+    max-width: 45%; 
+    max-height: 70vh;
 }
 
 .hero-left {
     position: absolute;
     left: 13%;         
-    top: 55%;        
+    top: 50%;        
     z-index: 4;        
     max-width: 420px;  
     display: flex;
@@ -272,7 +246,7 @@ body {
 
 #intro{
     padding-bottom: 40px;
-    padding-right: 400px;
+    padding-right: 5%;
 }
 
 #about-us h3{
@@ -282,7 +256,8 @@ body {
 
 #cards {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: stretch;            
     width: 100%;
     gap: 30px;       
@@ -479,7 +454,7 @@ body {
 
 .menu-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     width: 100%;
     max-width: 1200px;
@@ -522,6 +497,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     transition: 0.3s ease-in;
+    cursor: pointer;
 }
 
 #menu .tea:hover{
@@ -574,9 +550,8 @@ body {
     transform: scale(1.06);
 }
 
-
 /*Pre-process*/
-#Pre-process h2{
+#Pre-process h2 {
     margin-top: 60px;   
     text-align: center;
     color: #EF51B8;
@@ -585,19 +560,19 @@ body {
     margin-bottom: 30px; 
 }
 
-#Pre-process h2 span{
+#Pre-process h2 span {
     color: #EF51B8;
     background-color: #E0E15F;
     padding: 10px;
     display: inline-block; 
 }
 
-#pink-container .banner-img{
+#pink-container .banner-img {
     width: 100%;        
     height: auto;
     border-radius: 30px;
     display: block;
-    border:  5px solid #E0E15F;
+    border: 5px solid #E0E15F;
 }
 
 #pink-container {
@@ -605,8 +580,8 @@ body {
     width: 80%;          
     max-width: 1100px;
     margin-bottom: 50px;
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .step-item {
@@ -624,7 +599,7 @@ body {
     font-weight: bold;
     font-family: Frogie;
     color: transparent;
-  -webkit-text-stroke: 1px #E0E15F;
+    -webkit-text-stroke: 1px #E0E15F;
 }
 
 .step-item p {
@@ -634,30 +609,11 @@ body {
     color: #fefefb;
 }
 
-.step-1 {
-    top: 60%;
-    left: 11%;
-}
-
-.step-2 {
-    top: 30%;
-    left: 31%;
-}
-
-.step-3 {
-    top: 60%;
-    left: 52%;
-}
-
-.step-4 {
-    top: 23%;
-    left: 71%;
-}
-
-.step-5 {
-    top: 65%;
-    left: 90%;
-}
+.step-1 { top: 60%; left: 11%; }
+.step-2 { top: 30%; left: 31%; }
+.step-3 { top: 60%; left: 52%; }
+.step-4 { top: 23%; left: 71%; }
+.step-5 { top: 65%; left: 90%; }
 
 .border-flower {
     position: absolute;
@@ -675,7 +631,6 @@ body {
     bottom: -15px;    
     right: -15px;      
 }
-
 
 /*review*/
 #review{
@@ -809,7 +764,8 @@ body {
 #loc-container iframe{
     border-radius: 20px;
     border: 2px solid #E0E15F;
-    width: 500px; 
+    width: 100%;
+    max-width: 500px; 
     height: 100%; 
     min-height: 450px;
     
@@ -934,4 +890,168 @@ body {
     margin: 0;
     font-size: 12px;
     color: #555555;
+}
+
+/* ==========================================================================
+   POPUP MODAL SECTION
+   ========================================================================== */
+
+/* The dark background overlay */
+.modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000; /* Stays on top of everything */
+    justify-content: center;
+    align-items: center;
+}
+
+/* The Popup Box */
+.modal-content {
+    background-color: #fefefb;
+    border-radius: 30px;
+    width: 80%;
+    max-width: 800px;
+    height: 500px;
+    display: flex;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    overflow: hidden;
+    border: 5px solid #EF51B8;
+}
+
+/* The 'X' Close Button */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 35px;
+    color: #EF51B8;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 10;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: #E0E15F;
+    transform: scale(1.1);
+}
+
+/* Left side container */
+.modal-left {
+    background-color: #E0E15F;
+    width: 80%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding: 20px 0;
+}
+
+#modal-img {
+    position: relative;
+    z-index: 2;
+    width: auto;         
+    max-width: 90%;
+    height: 100%;        
+    max-height: 800px;   
+    object-fit: contain; 
+}
+
+/* Right side with Text */
+.modal-right {
+    width: 60%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal-right h3 {
+    color: #EF51B8;
+    font-family: 'Frogie', sans-serif;
+    font-size: 30px;
+    margin: 0 0 15px 0;
+}
+
+.modal-right p {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.cart-btn{
+    background-color: #E0E15F;
+    color: #333333;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+
+.cart-btn:hover {
+    background-color: #EF51B8;
+    color: #FFFFFF;
+    transform: scale(1.03);
+}
+
+.price-quantity-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(0,0,0,0.1); /* Adds a subtle divider line */
+}
+
+#modal-price {
+    font-size: 26px;
+    color: #EF51B8; /* Yummy Tea Pink */
+    margin: 0;
+    font-weight: bold;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    border: 2px solid #E0E15F; /* Yummy Tea Yellow */
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: #fefefb;
+}
+
+.quantity-selector button {
+    background-color: transparent;
+    border: none;
+    color: #EF51B8;
+    font-size: 22px;
+    width: 40px;
+    height: 35px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity-selector button:hover {
+    background-color: #E0E15F; /* Highlights yellow on hover */
+    color: #fefefb;
+}
+
+#qty-count {
+    padding: 0 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #1b1a1a;
 }
