@@ -1679,6 +1679,17 @@ body {
     }
 
     /* 4. About Us - 2 Cards per Row */
+    /* Reduce left padding for the About Us section header */
+    #about-us {
+        padding: 30px 15px !important; /* Reduced left/right padding from 20px down to 10px */
+    }
+
+    #text {
+        padding-left: 0 !important; /* Removes any extra indent */
+        margin-left: 0 !important;
+        text-align: left;
+    }
+    
     #cards {
         flex-wrap: wrap; 
         gap: 15px;
@@ -2048,5 +2059,55 @@ body {
 
     #footer .lower-box p {
         font-size: 11px !important;
+    }
+
+    /* Forces the cart sidebar to take up 100% of the mobile screen height */
+    .cart-sidebar {
+        height: 100vh !important;
+        max-height: 100vh !important;
+        top: 0;
+    }
+
+    /* Product Detail Popup Modal: Picture on top, Details below */
+    .modal-content {
+        flex-direction: column !important; /* Stacks top/bottom instead of side-by-side */
+        height: auto !important;
+        max-height: 90vh !important; /* Prevents it from going off the screen */
+        width: 90% !important;
+        overflow-y: auto !important; /* Allows scrolling if content is tall */
+    }
+
+    .modal-left {
+        width: 100% !important;
+        height: 220px !important; /* Gives the image a clean, fixed frame */
+        padding: 10px 0 !important;
+    }
+
+    #modal-img {
+        height: 100% !important;
+        max-height: 200px !important;
+    }
+
+    .modal-right {
+        width: 100% !important;
+        padding: 20px !important;
+        box-sizing: border-box;
+    }
+
+    .modal-right h3 {
+        font-size: 22px !important;
+    }
+
+    .modal-right p {
+        font-size: 13px !important;
+        margin-bottom: 15px !important;
+    }
+
+    .price-quantity-row {
+        margin-bottom: 15px !important;
+    }
+
+    #modal-price {
+        font-size: 20px !important;
     }
 }
