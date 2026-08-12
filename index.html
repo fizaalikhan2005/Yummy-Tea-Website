@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://maps.google.com">
     <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://maps.google.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header id="navbar">
@@ -21,6 +22,12 @@
                 <li><a href="#review">Reviews</a></li>
                 <li><a href="#location">Location</a></li>
                 <li><a href="#footer">Contact</a></li>
+                <li>
+                    <a id="open-cart-btn" aria-label="Open Cart">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span id="cart-badge">0</span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -149,7 +156,7 @@
                         data-desc="A refreshing blend of premium matcha green tea, creamy milk, and our signature bouncy tapioca pearls. Perfectly sweet and earthy!">
                     Details
                 </button>
-                <button class="btn-solid">Buy</button>
+                <button class="btn-solid buy-btn">Buy</button>
             </div>
         </div>
 
@@ -168,7 +175,7 @@
                         data-desc="Sweet, rich, and beautifully purple! Our Ice Taro is a creamy delight made with real taro root and fresh milk.">
                     Details
                 </button>
-                <button class="btn-solid">Buy</button>
+                <button class="btn-solid buy-btn">Buy</button>
             </div>
         </div>
 
@@ -187,7 +194,7 @@
                         data-desc="Need a boost? A smooth, chilled coffee mixed with our secret sweet cream formula and chewy boba.">
                     Details
                 </button>
-                <button class="btn-solid">Buy</button>
+                <button class="btn-solid buy-btn">Buy</button>
             </div>
         </div>
 
@@ -206,7 +213,7 @@
                         data-desc="Tropical vibes in a cup! Sweet mango puree mixed with rich cheese foam and fresh tea base.">
                     Details
                 </button>
-                <button class="btn-solid">Buy</button>
+                <button class="btn-solid buy-btn">Buy</button>
             </div>
         </div>
     </div>
@@ -360,11 +367,99 @@
                     </div>
                 </div>
 
-                <button class="cart-btn">Add to Cart</button>
+                <button class="btn-solid" id="add-to-cart-btn">Add to Cart</button>
             </div>
         </div>
     </div>
 
+        <!-- === CART SIDEBAR === -->
+    <div id="cart-sidebar-overlay" class="modal-overlay">
+        <div class="cart-sidebar">
+            <div class="cart-header">
+                <h2>Cart</h2>
+                <span class="close-cart-btn">&times;</span>
+            </div>
+            
+            <div id="cart-items-container">
+                <!-- JavaScript will put the drinks here -->
+                <p class="empty-cart-msg">Your cart is empty.</p>
+            </div>
+            
+            <div class="cart-footer">
+                <div class="cart-total-row">
+                    <h3>Total:</h3>
+                    <h3 id="cart-total-price">$0.00</h3>
+                </div>
+                <button class="btn-solid checkout-btn">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+        <!-- === CHECKOUT MODAL === -->
+    <div id="checkout-modal" class="modal-overlay">
+        <div class="checkout-content">
+            <span class="close-checkout-btn">&times;</span>
+            <h2 class="checkout-title">Checkout</h2>
+            
+            <form id="checkout-form">
+                <!-- Order Type Selection -->
+                <div class="order-type-toggle">
+                    <label>
+                        <input type="radio" name="orderType" value="delivery" checked> Delivery
+                    </label>
+                    <label>
+                        <input type="radio" name="orderType" value="takeaway"> Take Away
+                    </label>
+                </div>
+
+                <!-- Standard Information -->
+                <input type="text" id="c-name" placeholder="Full Name" required>
+                <input type="tel" id="c-phone" placeholder="Phone Number" required>
+                <input type="email" id="c-email" placeholder="Email Address">
+
+                <!-- Dynamic Fields (Change based on selection) -->
+                <div id="delivery-fields">
+                    <textarea id="c-address" placeholder="Enter your full delivery address..." required></textarea>
+                </div>
+                
+                <div id="takeaway-fields" style="display: none;">
+                    <select id="c-branch">
+                        <option value="" disabled selected>Select a Branch to pick up from</option>
+                        <option value="sretenka">Sretenka, 28, bldg. 2</option>
+                        <option value="bolshaya">Bolshaya Nikitskaya, 23</option>
+                        <option value="baumanskaya">Baumanskaya, 15, bldg. 1</option>
+                    </select>
+                </div>
+
+                <!-- Payment Method -->
+                <div class="payment-method">
+                    <p><strong>Payment Method:</strong> Cash on Delivery (COD)</p>
+                </div>
+
+                <!-- Total and Submit -->
+                <div class="checkout-footer">
+                    <h3>Total: <span id="checkout-total-price">$0.00</span></h3>
+                    <button type="submit" class="btn-solid" id="place-order-btn">Place Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+        <!-- === THANK YOU MODAL === -->
+    <div id="thankyou-modal" class="modal-overlay">
+        <div class="thankyou-content">
+            <img src="img/bobatea.svg" alt="Yummy Boba" class="thankyou-img">
+            <h2>YAY! ORDER PLACED!</h2>
+            <p>Thank you for choosing Yummy Tea! <br>Your delicious drink is being prepared.</p>
+            <button id="close-thankyou-btn" class="btn-solid">Back to Menu</button>
+        </div>
+    </div>
+
+        <!-- === SCROLL TO TOP BUTTON === -->
+    <a href="#hero" id="scroll-top-btn" aria-label="Back to top">
+        <i class="fa-regular fa-circle-up"></i>
+    </a>
+        
     <script src="script.js"></script>
 </body>
 </html>
