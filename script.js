@@ -1,6 +1,29 @@
 //<!-- === JAVASCRIPT FOR MODAL, CART & CHECKOUT === -->
 
     document.addEventListener("DOMContentLoaded", () => {
+        
+        // ==========================================
+        // 0. MOBILE HAMBURGER MENU
+        // ==========================================
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.querySelector("#navbar nav ul");
+
+        // Toggle menu open/close
+        hamburger.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+        });
+
+        // Close menu automatically when a link is clicked
+        const navLinks = document.querySelectorAll("#navbar nav ul li a");
+        navLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                if (link.id !== "open-cart-btn") { // Don't close if they click the cart
+                    navMenu.classList.remove("active");
+                }
+            });
+        });
+
+
         // ==========================================
         // 1. SET UP VARIABLES
         // ==========================================
@@ -24,10 +47,10 @@
         // Cart Elements
         const cartSidebarOverlay = document.getElementById("cart-sidebar-overlay");
         const cartSidebar = document.querySelector(".cart-sidebar");
-        const openCartBtn = document.getElementById("open-cart-btn");
+        const openCartBtns = document.querySelectorAll(".open-cart-btn");
         const closeCartBtn = document.querySelector(".close-cart-btn");
         const cartItemsContainer = document.getElementById("cart-items-container");
-        const cartBadge = document.getElementById("cart-badge");
+        const cartBadges = document.querySelectorAll(".cart-badge");
         const cartTotalPrice = document.getElementById("cart-total-price");
 
         // Checkout Elements
@@ -141,7 +164,7 @@
         // Function to redraw the cart
         function updateCartUI() {
             const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-            cartBadge.textContent = totalItems;
+            cartBadges.forEach(badge => { badge.textContent = totalItems; });
 
             cartItemsContainer.innerHTML = "";
             let totalPrice = 0;
@@ -207,10 +230,12 @@
         }
 
         // Open/Close Cart Sidebar
-        openCartBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            cartSidebarOverlay.style.display = "block";
-            setTimeout(() => { cartSidebar.classList.add("open"); }, 10);
+        openCartBtns.forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                e.preventDefault();
+                cartSidebarOverlay.style.display = "block";
+                setTimeout(() => { cartSidebar.classList.add("open"); }, 10);
+            });
         });
 
         closeCartBtn.addEventListener("click", () => {
