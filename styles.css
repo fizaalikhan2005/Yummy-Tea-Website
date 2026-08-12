@@ -7,7 +7,9 @@
   font-style: normal;
   font-display: swap;
 }
-
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 @font-face {
     font-family: 'Frogie';
     src: url(fonts/Frogie-Regular.woff);
@@ -57,6 +59,7 @@ body {
     width: 100%;
     box-sizing: border-box;  
 }
+
 
 #navbar ul{
     display: flex;
@@ -260,7 +263,9 @@ body {
     justify-content: center;
     align-items: stretch;            
     width: 100%;
-    gap: 30px;       
+    gap: 30px;  
+    max-width: 1100px; /* Keeps the group tight */
+    margin: 0 auto; /* Centers the entire group on the screen */     
 }
 
 .card {
@@ -320,15 +325,36 @@ body {
     right: -20px;   
 }
 
-#outro{
-    align-items: flex-end;
+/* Centers the cards and prevents them from spreading too wide */
+#cards {
     display: flex;
-    flex-direction: column;
-    padding-left: 60%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;            
+    width: 100%;
+    max-width: 1100px; /* Keeps the group tight */
+    margin: 0 auto; /* Centers the entire group on the screen */
+    gap: 30px;      
 }
 
-#outro p{
+/* Moves the outro to the bottom left, aligned with the cards */
+#outro {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Aligns the button and text to the left */
+    width: 100%;
+    max-width: 1100px; /* Matches the card container width */
+    margin: 50px auto 0 auto; /* Centers the box and adds space above it */
+    padding-left: 15px; /* Adds that slight padding on the left side */
+    box-sizing: border-box;
+}
+
+/* Prevents the text from stretching across the screen */
+#outro p {
     text-align: right;
+    max-width: 400px; /* Ensures it "only spans a little bit" */
+    font-size: 16px;
+    line-height: 1.5;
 }
 
 /*Why US*/
@@ -392,14 +418,30 @@ body {
     color: #E0E15F;
 }
 
-#grid-container .card span{
-    width: 60px;
-    height: 50px;
+/* Centers the number perfectly inside the flower */
+#grid-container .card span {
     position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 65px;
+    height: 65px;
     z-index: 20;
-    top: 6px;
-    left: 6px;
-    font-family: 'Frogie';
+    font-family: 'Frogie', sans-serif;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Forces the flower to sit in the exact same box as the number */
+#grid-container .card img {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 65px;
+    height: 65px;
+    z-index: 10;
+    object-fit: contain;
 }
 
 #center img{
@@ -427,17 +469,15 @@ body {
 #menu {
     background-color: #E0E15F;
     margin-top: 0;
-    padding-bottom: 50px;
-    min-height: 100vh;
+    padding: 60px 0 80px 0;
     display: flex;
     flex-direction: column;
-    justify-content: center; 
-    padding: 20px 0; 
+    justify-content: center;
     box-sizing: border-box;
 }
 
 #menu h2 {
-    margin-top: -60px;   
+    margin-top: 0px;   
     text-align: center;
     color: #EF51B8;
     font-family: 'Frogie', sans-serif;
@@ -729,13 +769,15 @@ body {
     font-size: 30px;
 }
 
-#loc-container{
+#loc-container {
     display: flex;
     flex-direction: row;
-    padding: 0 100px 50px 100px;
-    align-content: center;
+    padding: 0 20px 50px 20px; 
+    justify-content: center; /* Centers the whole container */
     align-items: stretch;
     color: #fefefb;
+    max-width: 1100px;
+    margin: 0 auto; /* Centers the box on the page */
 }
 
 #loc-container div{
@@ -761,18 +803,22 @@ body {
     padding-bottom: 30px;
 }
 
-#loc-container iframe{
-    border-radius: 20px;
-    border: 2px solid #E0E15F;
-    width: 100%;
-    max-width: 500px; 
-    height: 100%; 
-    min-height: 450px;
-    
-    /* Rounded corners on the right side only */
+#loc-container iframe {
     border-radius: 0 20px 20px 0;
     border: 3px solid #E0E15F;
     border-left: none;
+    width: 100%;
+    max-width: 500px;
+    height: auto; 
+    min-height: 450px;
+}
+
+#hamburger {
+    display: none;
+    font-size: 30px;
+    color: #fefefb;
+    cursor: pointer;
+    z-index: 100;
 }
 
 /* Footer Container */
@@ -1048,31 +1094,30 @@ body {
 }
 
 /* ==========================================================================
-   CART SIDEBAR & NAV ICON SECTION
+   CART NAV ICON & BADGE
    ========================================================================== */
 
-/* --- 1. Cart Nav Icon & Floating Badge (FontAwesome) --- */
-#open-cart-btn {
+.open-cart-btn {
     position: relative;
     display: inline-flex;
     align-items: center;
     cursor: pointer;
-    font-size: 20px; /* Adjusts the size of the FontAwesome icon */
+    font-size: 20px; 
     color: white;
     transition: 0.3s ease;
 }
 
-#open-cart-btn:hover {
+.open-cart-btn:hover {
     color: #E0E15F; 
-    transform: translate(-2px, -1px); /* Matches the bounce of your other links */
+    transform: translate(-2px, -1px); 
     text-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 
-#cart-badge {
+.cart-badge {
     position: absolute;
     top: -10px;
     right: -12px;
-    background-color: #EF51B8; /* Yummy Tea Pink */
+    background-color: #EF51B8; 
     color: #fefefb;
     border-radius: 50%;
     padding: 2px 6px;
@@ -1082,7 +1127,16 @@ body {
     border: 2px solid transparent; 
     min-width: 10px;
     text-align: center;
-    pointer-events: none; /* Stops the badge from interfering with clicks */
+    pointer-events: none; 
+}
+
+/* --- DESKTOP DISPLAY RULES --- */
+#desktop-cart { 
+    display: block; /* Forces the desktop cart to stay visible inside the pill menu */
+}
+
+.header-actions {
+    display: none; /* Completely hides the mobile buttons to keep your original layout centered */
 }
 
 /* --- 2. The Sidebar Panel --- */
@@ -1464,4 +1518,535 @@ body {
 
 #scroll-top-btn:hover i {
     color: #E0E15F; /* Changes to Yummy Tea Yellow on hover */
+}
+
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS (Max Width: 900px)
+   ========================================================================== */
+@media (max-width: 900px) {
+    /* 1. Navbar & Hamburger Menu */
+    /* --- MOBILE DISPLAY RULES --- */
+    
+    #desktop-cart { 
+        display: none !important; /* Hides the desktop cart so it doesn't duplicate inside the dropdown */
+    }
+    
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+    }
+    
+    #mobile-cart { 
+        display: inline-flex !important; /* Forces the mobile cart to show up next to the hamburger */
+    }
+
+    #hamburger {
+        display: block; /* Show hamburger */
+        font-size: 22px !important; /* Shrunk from 30px */
+    }
+
+    .logo {
+        height: auto;
+        width: 100px; /* Increased from 10% to make it nice and prominent! */
+        max-width: 180px;
+        margin-top: 10px;
+    }
+
+    .open-cart-btn {
+        font-size: 16px !important; /* Shrunk the cart icon size */
+    }
+
+    .cart-badge {
+        font-size: 9px !important;
+        padding: 1px 4px !important;
+        top: -8px !important;
+        right: -10px !important;
+    }
+
+    #navbar nav ul {
+        display: none; /* Hide default nav */
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background-color: #EF51B8;
+        border: 3px solid #E0E15F;
+        border-radius: 20px;
+        padding: 20px;
+        gap: 15px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+    #navbar nav ul.active {
+        display: flex; /* JavaScript triggers this */
+    }
+
+    /* 2. Scale down Text Sizes globally */
+    h2 { font-size: 30px !important; }
+    h3 { font-size: 20px !important; }
+    p { font-size: 14px !important; }
+    #intro h2 { font-size: 20px !important; }
+    .hero-left h2 { font-size: 26px !important; }
+    .hero-left span { font-size: 28px !important; }
+
+/* 3. Hero Section Mobile Layout with Stacked, Larger Yummy Tea Text */
+    #hero {
+        min-height: auto !important;
+        height: 500px; /* Compact mobile banner height */
+        background-size: cover;
+        background-position: center;
+        padding: 0;
+        box-sizing: border-box;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-title-wrapper {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    /* Left Side: Text and Button container */
+    .hero-left {
+        position: absolute;
+        left: 5%;
+        top: 52%;
+        z-index: 4;
+        max-width: 50%;
+        align-items: flex-start;
+        text-align: left;
+        margin: 0;
+    }
+
+    .hero-left h2 {
+        font-size: 15px !important;
+        margin-bottom: 5px;
+    }
+
+    .hero-left span {
+        font-size: 16px !important;
+        margin-bottom: 8px;
+    }
+
+    .hero-left p {
+        font-size: 10px !important;
+        margin-bottom: 12px;
+        line-height: 1.3;
+    }
+
+    .hero-left button {
+        padding: 5px 16px;
+        font-size: 12px !important;
+    }
+
+    /* Right Side: Boba Image */
+    #boba {
+        position: absolute;
+        right: -10%;
+        bottom: 5%;
+        z-index: 3;
+        max-width: 70%;
+        height: auto;
+        max-height: 500px;
+        transform: rotate(15deg);
+        margin: 0;
+    }
+
+    /* Stacked YUMMY and TEA text: Yummy upper, Tea lower, with a much bigger font size */
+    #yummy {
+        position: absolute;
+        z-index: 1;
+        top: 28%;
+        left: 5%;
+    }
+
+    #tea {
+        position: absolute;
+        z-index: 2;
+        top: 40%;
+        left: 5%;
+    }
+
+    #hero h1 { 
+        display: block !important;
+        font-size: 60px !important; /* Made the font size much bigger */
+        letter-spacing: 3px !important; 
+    }
+
+    /* 4. About Us - 2 Cards per Row */
+    #cards {
+        flex-wrap: wrap; 
+        gap: 15px;
+        padding: 0 10px;
+    }
+    .card {
+        max-width: calc(50% - 10px); 
+        min-width: 140px;
+        padding: 15px 10px;
+        min-height: 150px;
+    }
+    .card p { margin: 10px; font-size: 12px !important; }
+    .card img { width: 40px; height: 35px; }
+
+    /* ADD THIS: Centers the outro text perfectly on mobile phones */
+    #outro {
+        align-items: flex-end; 
+        padding-left: 0;
+        margin-top: 20px;
+    }
+    #outro p {
+        text-align: right;
+        max-width: 90%;
+    }
+
+    /* 5. Why Us - 2 Cards per Row */
+    #center { 
+        display: none; /* Hides boba image */
+    }
+    #grid-container {
+        grid-template-columns: 1fr 1fr; /* Puts the left and right sides next to each other */
+        gap: 15px;
+        padding: 10px 15px;
+    }
+    #left-side, #right-side { 
+        gap: 15px; 
+    }
+    #grid-container .card { 
+        max-width: 100%; 
+        width: 100%; 
+        min-height: 150px;
+        height: 100%;
+        padding: 15px 10px;
+    }
+    /* Shrink the text and icons slightly so they fit nicely side-by-side */
+    #grid-container .card h3 { 
+        font-size: 14px !important; 
+        margin: 20px 0 5px 0;
+    }
+    #grid-container .card p { 
+        font-size: 12px !important; 
+        margin: 5px;
+    }
+    #grid-container .card span, 
+        #grid-container .card img {
+            width: 45px;
+            height: 45px;
+            top: -10px;
+            left: -10px;
+        }
+        #grid-container .card span {
+            font-size: 16px !important;
+        }
+
+    #menu h2 {
+        margin-top: 0px; /* Changed from -60px to 0px to push it lower */
+        text-align: center;
+        color: #EF51B8;
+        font-family: 'Frogie', sans-serif;
+        font-size: 40px;
+        margin-bottom: 60px; /* I also reduced this slightly so the gap below the title isn't too huge */
+    }
+
+    /* 6. Main Menu - 2 Products per Row */
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr); /* Forces exactly 2 columns */
+        gap: 10px;
+        padding: 0 10px;
+    }
+    .pro-card {
+        width: 100%;
+        overflow: visible;
+    }
+    .img-stack { 
+        height: 180px; /* Gives the images enough room vertically */
+    }
+    #menu .blob { 
+        width: 80%; 
+        max-width: 120px; 
+        bottom: 20px;
+    }
+    #menu .tea { 
+        width: 90%; 
+        max-width: 140px; 
+        bottom: 0px;
+    }
+    #menu .tea:hover {
+        width: 105%; /* Subtle hover effect on mobile */
+        max-width: 155px;
+    }
+    .pro-btn { 
+        flex-direction:row; 
+        gap: 8px; 
+        width: 100%; 
+    }
+    .pro-btn button { 
+        padding: 6px; 
+        flex:1;
+        font-size: 12px; 
+    }
+    .pro-card h4 { 
+        font-size: 13px; 
+        margin: 15px 0 10px 0; 
+        min-height: 35px; /* Keeps buttons aligned even if a title is long */
+    }
+
+/* 7. Preparation Process (Desktop Look on Mobile) */
+    #pink-container {
+        display: block; 
+        width: 95%; 
+        background: transparent;
+        padding: 0;
+        border: none;
+        position: relative; /* Ensures absolute children stay inside */
+        overflow: hidden; /* Clips anything trying to slip past the edges */
+    }
+    #Pre-process h2 {
+        font-size: 28px !important; 
+    }
+    .banner-img { 
+        display: block !important; 
+        width: 100%;
+        height: auto;
+    }
+    
+    .border-flower {
+        display: none !important; /* Hides the extra corner flowers on mobile so they don't break layout */
+    }
+    
+    /* Shrink the text boxes so they fit perfectly over the small mobile image */
+    .step-item { 
+        position: absolute; 
+        width: 19%; 
+    }
+    
+    .step-item h3 { 
+        font-size: 12px !important; 
+        -webkit-text-stroke: 0.5px #E0E15F; 
+        margin-bottom: 2px;
+    }
+    
+    .step-item p { 
+        font-size: 7.5px !important; 
+        line-height: 1.1;
+    }
+    
+    .step-1 { top: 63%; left: 13%; }
+    .step-2 { top: 25%; left: 33%; }
+    .step-3 { top: 63%; left: 53%; }
+    .step-4 { top: 25%; left: 73%; }
+    .step-5 { top: 63%; left: 92%; }
+
+    
+    /* 8. Reviews (Smaller Swipeable Carousel) */
+    .review-cards { 
+        flex-direction: row; 
+        overflow-x: auto; 
+        scroll-snap-type: x mandatory; 
+        padding: 40px 20px 60px 20px; 
+        gap: 15px; /* Slightly tighter gap */
+        scrollbar-width: none; 
+        -ms-overflow-style: none;
+    }
+    #review h2 {
+        font-size: 28px !important; 
+    }
+    .review-cards::-webkit-scrollbar {
+        display: none; 
+    }
+    .re-card { 
+        flex: 0 0 auto; 
+        width: 200px; /* Shrunk down for a cuter mobile look! */
+        height: 200px; /* Keeps it perfectly square */
+        max-width: 200px;
+        padding: 15px; /* Slightly less padding to leave room for text */
+        scroll-snap-align: center; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    /* Shrink the corner flowers so they match the smaller card */
+    .re-card img {
+        width: 45px;
+        height: 38px;
+        top: -10px;
+        left: -15px;
+    }
+
+    #review .re-card:nth-child(even) img {
+        top: auto;      
+        left: auto;    
+        bottom: -5px;  
+        right: -15px;  
+    }
+    
+    /* Shrink text to fit the new smaller square perfectly */
+    .re-card h4 { font-size: 13px; margin-bottom: 8px; }
+    .re-card p { font-size: 11px !important; margin: 0; line-height: 1.3; }
+
+    /* 9. Location Map - Stacked, Centered, and Shrunk */
+    #loc-container {
+        flex-direction: column; 
+        padding: 0 0 40px 0;
+        width: 90%; /* Shrinks the overall width slightly */
+        margin: 0 auto; /* Keeps it perfectly centered */
+        box-sizing: border-box; 
+    }
+    
+    #loc-container div {
+        border-radius: 20px 20px 0 0;
+        border: 3px solid #E0E15F;
+        border-bottom: none;
+        width: 100%;
+        padding: 20px 25px; /* Reduced inner padding so it doesn't feel bulky */
+        box-sizing: border-box; 
+    }
+    
+    /* Shrink the Location Fonts */
+    #loc-container h3 {
+        font-size: 20px !important; /* Smaller header */
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+    
+    #loc-container ul {
+        padding-left: 0; /* Aligns the list perfectly to the left edge */
+    }
+    
+    #loc-container li {
+        font-size: 12px !important; /* Smaller address descriptions */
+        padding-bottom: 15px;
+    }
+
+    #loc-container li b {
+        font-size: 14px !important; /* Slightly larger for the bold street names */
+    }
+    
+    #loc-container p {
+        font-size: 12px !important; /* Smaller working hours text */
+        margin-bottom: 0;
+    }
+    
+    #loc-container iframe {
+        border-radius: 0 0 20px 20px;
+        border: 3px solid #E0E15F;
+        border-top: none;
+        width: 100%;
+        max-width: 100%; 
+        min-height: 250px; /* Shrunk the map height so it fits on screen better */
+        box-sizing: border-box; 
+    }
+
+/* 10. Clean Split Footer Layout for Mobile */
+    #footer {
+        padding: 30px 15px 20px 15px; 
+        box-sizing: border-box;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    /* Container for top row */
+    #footer .upper-box { 
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-bottom: 20px; 
+        width: 100%;
+    }
+
+    /* Forces the top section to act as a 2-column layout (Logo/Info left, Nav right) */
+    #footer .upper-box > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        gap: 15px;
+    }
+    
+    /* Left Side: Puts Logo on left and the text stack right next to it */
+    #footer .footer-info { 
+        display: flex;
+        flex-direction: row; 
+        align-items: center;
+        gap: 12px;
+        flex: 1;
+        min-width: 0; 
+    }
+
+    #footer .footer-info .logo { 
+        width: 90px; 
+        margin: 0; 
+        display: block;
+        flex-shrink: 0;
+    }
+    
+    /* Stacks email, phone, and social handle vertically in a column */
+    .footer-text-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    #footer .footer-info p, 
+    #footer .footer-info .social-handle {
+        font-size: 11px !important;
+        margin: 0;
+        word-break: break-word;
+    }
+
+    /* Right Side: Navigation Bar container */
+    #footer .footer-nav-promo {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        flex: 1;
+    }
+
+    /* Navigation Bar on the Right Side - centered column with balanced spacing */
+    #footer ul { 
+        display: flex;
+        flex-direction: row; 
+        align-items: center; /* Centers the links horizontally */
+        justify-content: center;
+        gap: 8px; 
+        padding: 0 10px; /* Gives equal padding from left and right */
+        margin: 0 auto;
+        width: 100%;
+        box-sizing: border-box;
+        list-style: none;
+        text-align: center;
+    }
+
+    #footer ul a {
+        font-size: 13px !important;
+    }
+
+    /* BOTTOM ROW: Supplier Box sits outside the columns, taking 100% full width */
+    #footer .promo-card {
+        display: block;
+        width: 100% !important; 
+        max-width: 100% !important; 
+        padding: 25px; 
+        border-radius: 20px;
+        box-sizing: border-box;
+        margin-top: 10px;
+    }
+
+    #footer .promo-card h3 {
+        font-size: 16px; 
+    }
+
+    #footer .promo-card p {
+        font-size: 13px !important; 
+        margin-bottom: 15px;
+    }
+
+    #footer .lower-box p {
+        font-size: 11px !important;
+    }
 }
