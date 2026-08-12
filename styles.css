@@ -986,36 +986,18 @@ body {
     margin-bottom: 25px;
 }
 
-.cart-btn{
-    background-color: #E0E15F;
-    color: #333333;
-    border: none;
-    padding: 10px 24px;
-    border-radius: 25px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s, background-color 0.2s;
-}
-
-
-.cart-btn:hover {
-    background-color: #EF51B8;
-    color: #FFFFFF;
-    transform: scale(1.03);
-}
-
 .price-quantity-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     padding-top: 10px;
     border-top: 1px solid rgba(0,0,0,0.1); /* Adds a subtle divider line */
 }
 
 #modal-price {
     font-size: 26px;
-    color: #EF51B8; /* Yummy Tea Pink */
+    color: #EF51B8; 
     margin: 0;
     font-weight: bold;
 }
@@ -1023,7 +1005,7 @@ body {
 .quantity-selector {
     display: flex;
     align-items: center;
-    border: 2px solid #E0E15F; /* Yummy Tea Yellow */
+    border: 2px solid #E0E15F; 
     border-radius: 30px;
     overflow: hidden;
     background-color: #fefefb;
@@ -1054,4 +1036,432 @@ body {
     font-size: 18px;
     font-weight: bold;
     color: #1b1a1a;
+}
+
+#add-to-cart-btn{
+    padding: 6px 20px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* ==========================================================================
+   CART SIDEBAR & NAV ICON SECTION
+   ========================================================================== */
+
+/* --- 1. Cart Nav Icon & Floating Badge (FontAwesome) --- */
+#open-cart-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px; /* Adjusts the size of the FontAwesome icon */
+    color: white;
+    transition: 0.3s ease;
+}
+
+#open-cart-btn:hover {
+    color: #E0E15F; 
+    transform: translate(-2px, -1px); /* Matches the bounce of your other links */
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+#cart-badge {
+    position: absolute;
+    top: -10px;
+    right: -12px;
+    background-color: #EF51B8; /* Yummy Tea Pink */
+    color: #fefefb;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: 'Franklin Gothic', 'Arial Narrow', Arial, sans-serif;
+    border: 2px solid transparent; 
+    min-width: 10px;
+    text-align: center;
+    pointer-events: none; /* Stops the badge from interfering with clicks */
+}
+
+/* --- 2. The Sidebar Panel --- */
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Hidden off-screen initially */
+    width: 400px;
+    max-width: 100%;
+    height: 100vh;
+    background-color: #fefefb;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    transition: right 0.4s ease; /* Smooth slide in */
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+}
+
+/* When the cart is open, JS adds this class */
+.cart-sidebar.open {
+    right: 0;
+}
+
+.cart-header {
+    background-color: #EF51B8;
+    color: #fefefb;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-header h2 {
+    margin: 0;
+    font-family: 'Frogie', sans-serif;
+    font-size: 30px;
+}
+
+.close-cart-btn {
+    font-size: 35px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.close-cart-btn:hover {
+    color: #E0E15F;
+}
+
+/* --- 3. Cart Items --- */
+#cart-items-container {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.empty-cart-msg {
+    text-align: center;
+    color: #888;
+    margin-top: 50px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.cart-item img {
+    width: 60px;
+    background-color: #E0E15F;
+    border-radius: 15px;
+    padding: 5px;
+    margin-right: 15px;
+}
+
+.cart-item-details h4 {
+    color: #EF51B8;
+    margin: 0 0 5px 0;
+    font-size: 16px;
+}
+
+.cart-item-details p {
+    margin: 0;
+    color: #333;
+    font-weight: bold;
+}
+
+.remove-item {
+    margin-left: auto;
+    color: #ff4d4d;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* --- 4. Cart Footer (Checkout) --- */
+.cart-footer {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-top: 2px solid #E0E15F;
+}
+
+.cart-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    color: #EF51B8;
+}
+
+.checkout-btn {
+    width: 100%;
+    font-size: 20px;
+    padding: 12px;
+}
+
+/* --- In-Cart Quantity Selector --- */
+.cart-qty-controls {
+    display: flex;
+    align-items: center;
+    border: 1px solid #E0E15F;
+    border-radius: 20px;
+    background-color: #fefefb;
+    width: fit-content;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+.cart-qty-controls button {
+    background-color: transparent;
+    border: none;
+    color: #EF51B8;
+    font-size: 16px;
+    font-weight: bold;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.cart-qty-controls button:hover {
+    background-color: #E0E15F;
+    color: #fefefb;
+}
+
+.cart-qty-count {
+    font-size: 14px;
+    font-weight: bold;
+    color: #1b1a1a;
+    padding: 0 10px;
+}
+
+.cart-item-price {
+    margin: 5px 0 0 0 !important;
+    color: #EF51B8 !important;
+}
+
+/* ==========================================================================
+   CHECKOUT MODAL SECTION
+   ========================================================================== */
+
+.checkout-content {
+    background-color: #fefefb;
+    border-radius: 30px;
+    width: 90%;
+    max-width: 500px;
+    padding: 40px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border: 5px solid #EF51B8;
+    display: flex;
+    flex-direction: column;
+}
+
+.close-checkout-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 35px;
+    color: #EF51B8;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close-checkout-btn:hover {
+    color: #E0E15F;
+}
+
+.checkout-title {
+    color: #EF51B8;
+    font-family: 'Frogie', sans-serif;
+    font-size: 35px;
+    margin-top: 0;
+    text-align: center;
+}
+
+.order-type-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #1b1a1a;
+    font-size: 18px;
+}
+
+.order-type-toggle input {
+    margin-right: 8px;
+    accent-color: #EF51B8; /* Makes the radio buttons pink */
+    transform: scale(1.2);
+}
+
+/* Form Inputs */
+#checkout-form input[type="text"],
+#checkout-form input[type="tel"],
+#checkout-form input[type="email"],
+#checkout-form textarea,
+#checkout-form select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 2px solid #E0E15F;
+    border-radius: 15px;
+    background-color: #fefefb;
+    font-family: inherit;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+#checkout-form input:focus,
+#checkout-form textarea:focus,
+#checkout-form select:focus {
+    outline: none;
+    border-color: #EF51B8;
+}
+
+#checkout-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.payment-method {
+    background-color: #f9f9f9;
+    padding: 12px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #EF51B8;
+    border: 1px solid #eee;
+}
+
+.checkout-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid #E0E15F;
+    padding-top: 15px;
+}
+
+.checkout-footer h3 {
+    margin: 0;
+    color: #1b1a1a;
+}
+
+#place-order-btn{
+    padding: 6px 20px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* ==========================================================================
+   THANK YOU MODAL SECTION
+   ========================================================================== */
+
+.thankyou-content {
+    background-color: #fefefb;
+    border-radius: 30px;
+    width: 90%;
+    max-width: 400px;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border: 5px solid #E0E15F; /* Yellow border to contrast the pink checkout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Floating animation for the boba cup */
+.thankyou-img {
+    width: 120px;
+    margin-bottom: 20px;
+    animation: floatBounce 2.5s infinite ease-in-out;
+}
+
+@keyframes floatBounce {
+    0%, 100% { transform: translateY(0) rotate(15deg); }
+    50% { transform: translateY(-15px) rotate(15deg); }
+}
+
+.thankyou-content h2 {
+    color: #EF51B8;
+    font-family: 'Frogie', sans-serif;
+    font-size: 35px;
+    margin: 0 0 10px 0;
+}
+
+.thankyou-content p {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 25px;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+#close-thankyou-btn {
+    width: 100%;
+    font-size: 20px;
+    padding: 12px;
+}
+
+/* ==========================================================================
+   SCROLL TO TOP BUTTON
+   ========================================================================== */
+
+#scroll-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #EF51B8;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 999; /* Keeps it above everything else */
+    
+    /* Initially hidden */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+/* JavaScript will add this class when the user scrolls down */
+#scroll-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Icon styling using your requested color as the default */
+#scroll-top-btn i {
+    font-size: 30px;
+    color: #f9f9f9; /* The specific pink color you requested */
+    transition: 0.3s ease;
+}
+
+/* Hover effect */
+#scroll-top-btn:hover {
+    transform: translateY(-5px); /* Bounces up slightly */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+#scroll-top-btn:hover i {
+    color: #E0E15F; /* Changes to Yummy Tea Yellow on hover */
 }
