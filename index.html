@@ -4,16 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yummy Tea</title>
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Google Fonts Preconnect for faster loading -->
     <link rel="preconnect" href="https://maps.google.com">
     <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://maps.google.com">
+    
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
+    <!-- ======================================================= -->
+    <!-- HEADER & NAVIGATION                                     -->
+    <!-- ======================================================= -->
     <header id="navbar">
-        <img class="logo" src="img/Logo.svg">
+        <img class="logo" src="img/Logo.svg" alt="Yummy Tea Logo">
         
+        <!-- Desktop Navigation Links -->
         <nav>
             <ul>
                 <li><a href="#about-us">About Us</a></li>
@@ -22,6 +33,8 @@
                 <li><a href="#review">Reviews</a></li>
                 <li><a href="#location">Location</a></li>
                 <li><a href="#footer">Contact</a></li>
+                
+                <!-- Desktop Cart Icon (Hidden on mobile) -->
                 <li id="desktop-cart">
                     <a class="open-cart-btn" aria-label="Open Cart">
                         <i class="fa-solid fa-cart-shopping"></i>
@@ -31,7 +44,7 @@
             </ul>
         </nav>
         
-        <!-- 2. MOBILE CART & HAMBURGER (Right Side) -->
+        <!-- Mobile Actions: Cart & Hamburger Menu (Hidden on desktop) -->
         <div class="header-actions">
             <a class="open-cart-btn" id="mobile-cart" aria-label="Open Cart">
                 <i class="fa-solid fa-cart-shopping"></i>
@@ -41,25 +54,27 @@
         </div>
     </header>
 
+
+    <!-- ======================================================= -->
+    <!-- HERO SECTION                                            -->
+    <!-- ======================================================= -->
     <section id="hero">
-    <!-- Kept your original wrapper name -->
         <div class="hero-title-wrapper">
             
-            <!-- Grouped your original H1s so they stay securely in the background -->
+            <!-- Background Decorative Text (YUMMY TEA) -->
             <div class="hero-bg-text" aria-hidden="true">
                 <h1 id="yummy">YU<span>M</span>MY</h1>
                 <h1 id="tea">T<span>E</span>A</h1>
             </div>
             
-            <!-- Left Side: Main Text -->
+            <!-- Left Side: Main Headline and Call to Action -->
             <div class="hero-left">
                 <h2>Your new reason to get together with <span>friends!</span></h2>
                 <p>Premium tea, explosive toppings, and an atmosphere where you want to hang out with friends all day.</p>
-                <!-- Fixed HTML error: Applied your .btn class directly to the <a> tag -->
                 <a href="#menu"><button class="btn">View Menu</button></a>
             </div>
 
-            <!-- Right Side: Grouped your image so Flexbox can put it on the right -->
+            <!-- Right Side: Hero Image -->
             <div class="hero-right">
                 <img id="boba" src="img/bobatea.svg" alt="Yummy Boba Tea">
             </div>
@@ -67,7 +82,12 @@
         </div>
     </section>
 
+
+    <!-- ======================================================= -->
+    <!-- ABOUT US SECTION                                        -->
+    <!-- ======================================================= -->
     <section id="about-us">
+        <!-- Section Intro text -->
         <div id="intro">
             <h2><span id="text">YU<span>M</span>MY T<span>E</span>A</span> — IS NOT JUST A BUBBLE TEA BAR — IT'S A CENTER OF ATTRACTION</h2>
             <p>We believe that a drink is more than just taste.</p>
@@ -75,224 +95,250 @@
         </div>
 
         <h3>Here is what you will find:</h3>
+        
+        <!-- Grid of 4 features/benefits cards -->
         <div id="cards">
             <div class="card">
                 <p>Premium tea base — no powders, only real brewed leaves.</p>
-                <img src="img/pink flower.svg">
+                <img src="img/pink flower.svg" alt="pink flower">
             </div>
-
             <div class="card">
                 <p>Playful toppings and classic tapioca that bursts with flavor.</p>
-                <img src="img/green flower.svg">
+                <img src="img/green flower.svg" alt="green flower">
             </div>
-
             <div class="card">
                 <p>An interior where you want to stick around — bright, stylish, with cozy corners for chatting and relaxing.</p>
-                <img src="img/pink flower.svg">
+                <img src="img/pink flower.svg" alt="pink flower">
             </div>
-
             <div class="card">
                 <p>Service without the rush, as if you are hanging out with friends.</p>
-                <img src="img/green flower.svg">
+                <img src="img/green flower.svg" alt="green flower">
             </div>
         </div>
 
+        <!-- Section Outro text -->
         <div id="outro">
             <p>We created a place you want to return to — after classes, before the movies, or just because.</p>
             <a href="#location"><button class="btn">Let's meet at Yummy?</button></a>
         </div>
     </section>
 
+
+    <!-- ======================================================= -->
+    <!-- WHY US SECTION                                          -->
+    <!-- ======================================================= -->
     <section id="why-us">
         <h2>WHY <span>Yummy TEA?</span></h2>
+        
+        <!-- 3-Column Grid Layout: Cards Left -> Image Center -> Cards Right -->
         <div id="grid-container">
+            
+            <!-- Left Side Cards -->
             <div id="left-side">
                 <div class="card">
                     <span>1</span>
-                    <img src="img/pink flower.svg">
+                    <img src="img/pink flower.svg" alt="pink flower">
                     <h3>A taste you want to repeat</h3>
                     <p>Premium tea with toppings that melt in your mouth.</p>
                 </div>
-
                 <div class="card">
                     <span>4</span>
-                    <img src="img/pink flower.svg">
+                    <img src="img/pink flower.svg" alt="pink flower">
                     <h3>Atmosphere for those who love to hang out</h3>
                     <p>Bright interior, cozy areas, great vibe — the perfect place for chatting and relaxing</p>
                 </div>
             </div>
 
+            <!-- Center Image -->
             <div id="center">
-                <img id="bobaa" src="img/bobatea.svg">
+                <img id="bobaa" src="img/bobatea.svg" alt="Boba Tea">
             </div>
 
+            <!-- Right Side Cards -->
             <div id="right-side">
                 <div class="card">
                     <span>2</span>
-                    <img src="img/pink flower.svg">
+                    <img src="img/pink flower.svg" alt="pink flower">
                     <h3>Fast service</h3>
                     <p>Quick and easy ordering — enjoy your tea sooner!</p>
                 </div>
-
                 <div class="card">
                     <span>3</span>
-                    <img src="img/pink flower.svg">
+                    <img src="img/pink flower.svg" alt="pink flower">
                     <h3>Diverse menu</h3>
                     <p>Rare flavor combinations. Taste something new every time!</p>
                 </div>
             </div>
+            
         </div>
     </section>
 
+
+    <!-- ======================================================= -->
+    <!-- MAIN MENU SECTION                                       -->
+    <!-- ======================================================= -->
     <section id="menu">
-    <div>
-        <h2>MAIN <span>MENU</span></h2>
-    </div>
-    
-    <div class="menu-grid">
-        <!-- Card 1 -->
-        <div class="pro-card">
-            <div class="img-stack">
-                <img class="blob" src="img/blob.svg" alt="blob">
-                <img class="tea" src="img/ice matcha.svg" alt="Ice Matcha Cream">
-            </div>
-            <h4>ICE MATCHA CREAM</h4>
-            <div class="pro-btn">
-                <button class="btn-outline detail-btn" 
-                        data-name="ICE MATCHA CREAM" 
-                        data-img="img/ice matcha.svg" 
-                        data-price="5.50"
-                        data-desc="A refreshing blend of premium matcha green tea, creamy milk, and our signature bouncy tapioca pearls. Perfectly sweet and earthy!">
-                    Details
-                </button>
-                <button class="btn-solid buy-btn">Buy</button>
-            </div>
+        <div>
+            <h2>MAIN <span>MENU</span></h2>
         </div>
+        
+        <!-- Product Grid containing all drinks -->
+        <div class="menu-grid">
+            
+            <!-- Product 1: Ice Matcha Cream -->
+            <div class="pro-card">
+                <div class="img-stack">
+                    <img class="blob" src="img/blob.svg" alt="blob">
+                    <img class="tea" src="img/ice matcha.svg" alt="Ice Matcha Cream">
+                </div>
+                <h4>ICE MATCHA CREAM</h4>
+                <div class="pro-btn">
+                    <!-- Data attributes store product info for the JS popup modal -->
+                    <button class="btn-outline detail-btn"
+                            data-name="ICE MATCHA CREAM"
+                            data-img="img/ice matcha.svg"
+                            data-price="5.50"
+                            data-desc="A refreshing blend of premium matcha green tea, creamy milk, and our signature bouncy tapioca pearls. Perfectly sweet and earthy!">
+                        Details
+                    </button>
+                    <button class="btn-solid buy-btn">Buy</button>
+                </div>
+            </div>
 
-        <!-- Card 2 -->
-        <div class="pro-card">
-            <div class="img-stack">
-                <img class="blob" src="img/blob.svg" alt="blob">
-                <img class="tea" src="img/ice taro.svg" alt="Ice Matcha Cream">
+            <!-- Product 2: Ice Taro -->
+            <div class="pro-card">
+                <div class="img-stack">
+                    <img class="blob" src="img/blob.svg" alt="blob">
+                    <img class="tea" src="img/ice taro.svg" alt="Ice Taro">
+                </div>
+                <h4>ICE TARO</h4>
+                <div class="pro-btn">
+                    <button class="btn-outline detail-btn"
+                            data-name="ICE TARO"
+                            data-img="img/ice taro.svg"
+                            data-price="6.50"
+                            data-desc="Sweet, rich, and beautifully purple! Our Ice Taro is a creamy delight made with real taro root and fresh milk.">
+                        Details
+                    </button>
+                    <button class="btn-solid buy-btn">Buy</button>
+                </div>
             </div>
-            <h4>ICE TARO</h4>
-            <div class="pro-btn">
-                <button class="btn-outline detail-btn" 
-                        data-name="ICE TARO" 
-                        data-img="img/ice taro.svg" 
-                        data-price="6.50"
-                        data-desc="Sweet, rich, and beautifully purple! Our Ice Taro is a creamy delight made with real taro root and fresh milk.">
-                    Details
-                </button>
-                <button class="btn-solid buy-btn">Buy</button>
-            </div>
-        </div>
 
-        <!-- Card 3 -->
-        <div class="pro-card">
-            <div class="img-stack">
-                <img class="blob" src="img/blob.svg" alt="blob">
-                <img class="tea" src="img/ice coffee.svg" alt="Ice Matcha Cream">
+            <!-- Product 3: Ice Coffee -->
+            <div class="pro-card">
+                <div class="img-stack">
+                    <img class="blob" src="img/blob.svg" alt="blob">
+                    <img class="tea" src="img/ice coffee.svg" alt="Ice Coffee">
+                </div>
+                <h4>ICE COFFEE</h4>
+                <div class="pro-btn">
+                    <button class="btn-outline detail-btn"
+                            data-name="ICE COFFEE"
+                            data-img="img/ice coffee.svg"
+                            data-price="7.50"
+                            data-desc="Need a boost? A smooth, chilled coffee mixed with our secret sweet cream formula and chewy boba.">
+                        Details
+                    </button>
+                    <button class="btn-solid buy-btn">Buy</button>
+                </div>
             </div>
-            <h4>ICE COFFEE</h4>
-            <div class="pro-btn">
-                <button class="btn-outline detail-btn" 
-                        data-name="ICE COFFEE" 
-                        data-img="img/ice coffee.svg" 
-                        data-price="7.50"
-                        data-desc="Need a boost? A smooth, chilled coffee mixed with our secret sweet cream formula and chewy boba.">
-                    Details
-                </button>
-                <button class="btn-solid buy-btn">Buy</button>
-            </div>
-        </div>
 
-        <!-- Card 4  -->
-        <div class="pro-card">
-            <div class="img-stack">
-                <img class="blob" src="img/blob.svg" alt="blob">
-                <img class="tea" src="img/ice mango.svg" alt="Ice Matcha Cream">
+            <!-- Product 4: Ice Mango Cream -->
+            <div class="pro-card">
+                <div class="img-stack">
+                    <img class="blob" src="img/blob.svg" alt="blob">
+                    <img class="tea" src="img/ice mango.svg" alt="Ice Mango Cream">
+                </div>
+                <h4>ICE MANGO CREAM</h4>
+                <div class="pro-btn">
+                    <button class="btn-outline detail-btn"
+                            data-name="ICE MANGO CREAM"
+                            data-img="img/ice mango.svg"
+                            data-price="5.50"
+                            data-desc="Tropical vibes in a cup! Sweet mango puree mixed with rich cheese foam and fresh tea base.">
+                        Details
+                    </button>
+                    <button class="btn-solid buy-btn">Buy</button>
+                </div>
             </div>
-            <h4>ICE MANGO CREAM</h4>
-            <div class="pro-btn">
-                <button class="btn-outline detail-btn" 
-                        data-name="ICE MANGO CREAM" 
-                        data-img="img/ice mango.svg" 
-                        data-price="5.50"
-                        data-desc="Tropical vibes in a cup! Sweet mango puree mixed with rich cheese foam and fresh tea base.">
-                    Details
-                </button>
-                <button class="btn-solid buy-btn">Buy</button>
-            </div>
+            
         </div>
-    </div>
     </section>
 
+
+    <!-- ======================================================= -->
+    <!-- PREPARATION PROCESS SECTION                             -->
+    <!-- ======================================================= -->
     <section id="Pre-process">
         <h2>WHAT GOES INTO YOUR <span>YUMMY?</span></h2>
+        
+        <!-- Pink banner container holding absolute positioned steps -->
         <div id="pink-container">
-
             <img src="img/green flower.svg" class="border-flower flower-left" alt="decor flower">
             <img src="img/green flower.svg" class="border-flower flower-right" alt="decor flower">
-
-            <img src="img/sec 4 banner.svg" class="banner-img">
+            
+            <img src="img/sec 4 banner.svg" class="banner-img" alt="Process Banner">
 
             <div class="step-item step-1">
                 <h3>TEA</h3>
                 <p>Base with rich flavor and aroma</p>
             </div>
-
             <div class="step-item step-2">
                 <h3>TAPIOCA</h3>
                 <p>Warm chewy balls for the mood</p>
             </div>
-
             <div class="step-item step-3">
                 <h3>FRUITS</h3>
                 <p>Juicy pieces of freshness in every sip</p>
             </div>
-
             <div class="step-item step-4">
                 <h3>CHEESE FOAM</h3>
                 <p>Tender, sweet and salty cap</p>
             </div>
-
             <div class="step-item step-5">
                 <h3>TOPPINGS</h3>
                 <p>The final touch from caramel to puree</p>
             </div>
         </div>
-        
     </section>
 
-    <section id="review">
-            <h2>WHAT DO THEY SAY <span> ABOUT US?</span></h2>
 
+    <!-- ======================================================= -->
+    <!-- REVIEWS SECTION                                         -->
+    <!-- ======================================================= -->
+    <section id="review">
+        <h2>WHAT DO THEY SAY <span> ABOUT US?</span></h2>
+
+        <!-- Horizontal scrollable review cards -->
         <div class="review-cards">
             <div class="re-card">
-                <img src="img/pink flower.svg">
+                <img src="img/pink flower.svg" alt="pink flower">
                 <h4>POLINA NALIVAYKO</h4>
                 <p>Visited this place for the first time, very beautiful, aesthetic and incredibly delicious! The cup design is impressive.</p>
             </div>
-
             <div class="re-card">
-                <img src="img/pink flower.svg">
+                <img src="img/pink flower.svg" alt="pink flower">
                 <h4>SVETLANA NOZDRACHEVA</h4>
                 <p>At Yummy Tea I managed to find one of the most delicious options. There is a huge selection of drinks here — from classic milk tea with tapioca to unusual fruit combinations.</p>
             </div>
-
             <div class="re-card">
-                <img src="img/pink flower.svg">
+                <img src="img/pink flower.svg" alt="pink flower">
                 <h4>YULIA KARPOVA</h4>
                 <p>Very good place, friendly staff, will prompt you if you don't know what to choose Highly recommend! All drinks are delicious, often drop by with a friend.</p>
             </div>
         </div>
     </section>
 
+
+    <!-- ======================================================= -->
+    <!-- LOCATION SECTION                                        -->
+    <!-- ======================================================= -->
     <section id="location">
         <h2>WHERE TO <span>FIND US?</span></h2>
+        
         <div id="loc-container">
-            <div >
+            <!-- Left text block with addresses -->
+            <div>
                 <h3>FIND YOUR CORNER WITH BUBBLES!</h3>
                 <ul>
                     <li>
@@ -310,14 +356,20 @@
                 </ul>
                 <p><b>WORKING HOURS: </b>daily from 10:00 to 22:00</p>
             </div>
+            
+            <!-- Right block embedded map -->
             <iframe src="https://maps.google.com/maps?q=Bolshaya%20Nikitskaya%2C%2023&t=m&z=14&ie=UTF8&iwloc=&output=embed"
-            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map Location"></iframe>
         </div>
-
     </section>
 
+
+    <!-- ======================================================= -->
+    <!-- FOOTER SECTION                                          -->
+    <!-- ======================================================= -->
     <footer id="footer">
         <div class="upper-box">
+            
             <!-- Left Section: Logo & Contact Info -->
             <div class="footer-info">
                 <img class="logo" src="img/Logo.svg" alt="Yummy Tea Logo">
@@ -341,13 +393,14 @@
                     </ul>
                 </nav>
 
-                <!-- Promo Box -->
+                <!-- Supplier Partnership Promo Box -->
                 <div class="promo-card">
                     <h3>WANT TO BECOME A SUPPLIER OR PARTNER?</h3>
                     <p>We are open to cooperation!</p>
                     <button type="button">Find out more</button>
                 </div>
             </div>
+            
         </div>
 
         <!-- Bottom Section: Copyright -->
@@ -356,7 +409,12 @@
         </div>
     </footer>
 
-    <!-- === PRODUCT POPUP MODAL === -->
+
+    <!-- ======================================================= -->
+    <!-- MODALS AND OVERLAYS (Hidden by default)                 -->
+    <!-- ======================================================= -->
+
+    <!-- 1. PRODUCT DETAILS MODAL (Opens when 'Details' is clicked) -->
     <div id="product-modal" class="modal-overlay">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
@@ -371,19 +429,19 @@
 
                 <div class="price-quantity-row">
                     <h4 id="modal-price">$0.00</h4>
+                    <!-- Quantity Controller -->
                     <div class="quantity-selector">
                         <button id="qty-minus">-</button>
                         <span id="qty-count">1</span>
                         <button id="qty-plus">+</button>
                     </div>
                 </div>
-
                 <button class="btn-solid" id="add-to-cart-btn">Add to Cart</button>
             </div>
         </div>
     </div>
 
-        <!-- === CART SIDEBAR === -->
+    <!-- 2. CART SIDEBAR (Slides out from right) -->
     <div id="cart-sidebar-overlay" class="modal-overlay">
         <div class="cart-sidebar">
             <div class="cart-header">
@@ -392,7 +450,7 @@
             </div>
             
             <div id="cart-items-container">
-                <!-- JavaScript will put the drinks here -->
+                <!-- JavaScript automatically injects cart items here -->
                 <p class="empty-cart-msg">Your cart is empty.</p>
             </div>
             
@@ -406,7 +464,7 @@
         </div>
     </div>
 
-        <!-- === CHECKOUT MODAL === -->
+    <!-- 3. CHECKOUT MODAL (Opens from Cart sidebar) -->
     <div id="checkout-modal" class="modal-overlay">
         <div class="checkout-content">
             <span class="close-checkout-btn">&times;</span>
@@ -423,16 +481,15 @@
                     </label>
                 </div>
 
-                <!-- Standard Information -->
+                <!-- Standard Information Inputs -->
                 <input type="text" id="c-name" placeholder="Full Name" required>
                 <input type="tel" id="c-phone" placeholder="Phone Number" required>
                 <input type="email" id="c-email" placeholder="Email Address">
 
-                <!-- Dynamic Fields (Change based on selection) -->
+                <!-- Dynamic Fields (Delivery Address vs Store Pickup) -->
                 <div id="delivery-fields">
                     <textarea id="c-address" placeholder="Enter your full delivery address..." required></textarea>
                 </div>
-                
                 <div id="takeaway-fields" style="display: none;">
                     <select id="c-branch">
                         <option value="" disabled selected>Select a Branch to pick up from</option>
@@ -442,12 +499,12 @@
                     </select>
                 </div>
 
-                <!-- Payment Method -->
+                <!-- Payment Method Info -->
                 <div class="payment-method">
                     <p><strong>Payment Method:</strong> Cash on Delivery (COD)</p>
                 </div>
 
-                <!-- Total and Submit -->
+                <!-- Total and Place Order Submit -->
                 <div class="checkout-footer">
                     <h3>Total: <span id="checkout-total-price">$0.00</span></h3>
                     <button type="submit" class="btn-solid" id="place-order-btn">Place Order</button>
@@ -456,7 +513,7 @@
         </div>
     </div>
 
-        <!-- === THANK YOU MODAL === -->
+    <!-- 4. THANK YOU MODAL (Success screen) -->
     <div id="thankyou-modal" class="modal-overlay">
         <div class="thankyou-content">
             <img src="img/bobatea.svg" alt="Yummy Boba" class="thankyou-img">
@@ -466,11 +523,17 @@
         </div>
     </div>
 
-        <!-- === SCROLL TO TOP BUTTON === -->
+
+    <!-- ======================================================= -->
+    <!-- UTILITIES & SCRIPTS                                     -->
+    <!-- ======================================================= -->
+    
+    <!-- Scroll to Top Button -->
     <a href="#hero" id="scroll-top-btn" aria-label="Back to top">
         <i class="fa-regular fa-circle-up"></i>
     </a>
-        
+       
+    <!-- JavaScript file link -->
     <script src="script.js"></script>
 </body>
 </html>
