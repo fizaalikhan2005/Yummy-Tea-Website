@@ -1,5 +1,6 @@
 # 🧋 Yummy Tea - E-Commerce Frontend
 
+![Yummy Tea Banner](img/Website-Banner)
 Welcome to **Yummy Tea**, a vibrant and fully responsive e-commerce frontend built for a premium bubble tea shop. This project focuses on delivering a smooth, aesthetic, and user-friendly shopping experience with dynamic, interactive UI elements.
 
 ## 🌸 About the Project
