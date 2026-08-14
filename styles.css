@@ -1,80 +1,89 @@
+/* ==========================================================================
+   1. FONTS & GLOBAL RESETS
+   ========================================================================== */
+
+/* Custom Fonts */
 @font-face {
-  font-family: 'Bouncy Black';
-  src: url('fonts/Bouncy-Black-PERSONAL_USE_ONLY.eot') format('opentype'),
-       url('fonts/Bouncy-Black-PERSONAL_USE_ONLY.woff2') format('woff2'),
-       url('fonts/Bouncy-Black-PERSONAL_USE_ONLY.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+    font-family: 'Bouncy Black';
+    src: url('fonts/Bouncy-Black-PERSONAL_USE_ONLY.eot') format('opentype'),
+         url('fonts/Bouncy-Black-PERSONAL_USE_ONLY.woff2') format('woff2'),
+         url('fonts/Bouncy-Black-PERSONAL_USE_ONLY.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
-*, *::before, *::after {
-    box-sizing: border-box;
-}
+
 @font-face {
     font-family: 'Frogie';
     src: url(fonts/Frogie-Regular.woff);
 }
 
+/* Global Box Sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Base Body Styles & Scrollbar Hiding */
 html, body {
     margin: 0;
     padding: 0;
     width: 100%;
     min-height: 100vh;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
     scroll-behavior: smooth;
-    font-family:'Franklin Gothic', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Franklin Gothic', 'Arial Narrow', Arial, sans-serif;
+    
+    /* Cross-browser Scrollbar Hiding */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
     display: none;
 }
 
-/* For IE, Edge, and Firefox */
-body {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-    margin: 0;
-    padding: 0;
-}
-
-.logo{
+/* Global Logo Sizing */
+.logo {
     height: 50%;
     width: 10%;
     margin-top: 30px;
 }
 
-/*NavBar*/
-#navbar{
+
+/* ==========================================================================
+   2. NAVBAR & HEADER
+   ========================================================================== */
+
+#navbar {
     background-color: transparent;
     padding: 10px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: absolute;
-    z-index: 10;
+    z-index: 10; /* Keeps navbar above the hero section */
     top: 0;
     left: 0;
     width: 100%;
     box-sizing: border-box;  
 }
 
-
-#navbar ul{
+/* Pill-shaped navigation container */
+#navbar ul {
     display: flex;
     flex-direction: row;
     gap: 20px;
     align-items: center;
     border-radius: 80px;
     border: 3px solid rgb(236, 228, 232);
-    padding: 10px 25px; /* Adds inner spacing inside the pill border */
+    padding: 10px 25px;
     margin: 0;
     list-style: none;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-#navbar li, #navbar li a{
+#navbar li, #navbar li a {
     text-decoration: none;
     list-style: none;
     color: white;
@@ -92,8 +101,18 @@ body {
     text-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 
-/*Hero*/
-/* --- HERO SECTION --- */
+#hamburger {
+    display: none; /* Hidden on desktop, shown on mobile */
+    font-size: 30px;
+    color: #fefefb;
+    cursor: pointer;
+    z-index: 100;
+}
+
+
+/* ==========================================================================
+   3. HERO SECTION
+   ========================================================================== */
 
 #hero {
     background-image: url(img/cover.svg);
@@ -110,7 +129,7 @@ body {
     overflow: hidden; 
 }
 
-/* 1. The Boundary Box */
+/* Constrains content to a max width so it doesn't stretch too far on huge screens */
 .hero-title-wrapper {
     position: relative; 
     display: flex;
@@ -121,6 +140,7 @@ body {
     margin: 0 auto; 
 }
 
+/* Giant background typography */
 #hero h1 {
     font-family: 'Bouncy Black', cursive, sans-serif;
     font-weight: 300;
@@ -149,6 +169,7 @@ body {
     color: rgb(255, 230, 230);
 }
 
+/* Floating Boba Cup Image */
 #boba {
     position: absolute;
     z-index: 2;
@@ -161,6 +182,7 @@ body {
     max-height: 70vh;
 }
 
+/* Left side text container */
 .hero-left {
     position: absolute;
     left: 13%;         
@@ -172,14 +194,14 @@ body {
     align-items: flex-start;       
 }
 
-.hero-left h2{
+.hero-left h2 {
     font-size: 30px;
     color: rgb(255, 230, 230);
     margin-bottom: 20px;
 }
 
-.hero-left span{
-    font-family:'Frogie','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+.hero-left span {
+    font-family: 'Frogie', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 30px;
     color: #E0E15F;
     margin-bottom: 20px;
@@ -187,20 +209,20 @@ body {
     font-weight: bolder;
 }
 
-.hero-left p{
+.hero-left p {
     margin-top: 0;
     color: rgb(255, 230, 230);
     font-weight: 50;
 }
 
+/* Hero Button */
 .hero-left button {
-    margin-top: 0;
     background-color: #E0E15F;
     padding: 10px 60px;
     border: none;
     border-radius: 50px;
     margin-top: 0;
-    font-family:'Frogie','Franklin Gothic', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Frogie', 'Franklin Gothic', 'Arial Narrow', Arial, sans-serif;
     color: rgb(252, 252, 252);
     text-decoration: none;
     font-size: 25px;
@@ -215,25 +237,29 @@ body {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 
-/*About Us*/
-#about-us{
+
+/* ==========================================================================
+   4. ABOUT US SECTION
+   ========================================================================== */
+
+#about-us {
     color: #EF51B8;
     padding: 30px 50px;
     width: 100%;
     box-sizing: border-box;
 }
 
-#text{
+#text {
     font-family: 'Bouncy Black', cursive, sans-serif;
     letter-spacing: 2px;
     font-size: 40px;
 }
 
-#text span{
-    color:#E0E15F;
+#text span {
+    color: #E0E15F;
 }
 
-#about-us button{
+#about-us button {
     border-radius: 30px;
     background-color: transparent;
     padding: 10px 30px;
@@ -242,30 +268,31 @@ body {
     font-weight: 600;
 }
 
-#intro h2{
+#intro h2 {
     word-spacing: 5px;
     letter-spacing: 3px;
 }
 
-#intro{
+#intro {
     padding-bottom: 40px;
     padding-right: 5%;
 }
 
-#about-us h3{
-        margin-top: 20px; 
-        font-size: 25px;
+#about-us h3 {
+    margin-top: 20px; 
+    font-size: 25px;
 }
 
+/* Flexbox grid for feature cards */
 #cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: stretch;            
     width: 100%;
-    gap: 30px;  
-    max-width: 1100px; /* Keeps the group tight */
-    margin: 0 auto; /* Centers the entire group on the screen */     
+    max-width: 1100px; /* Keeps the group perfectly centered and tight */
+    margin: 0 auto; 
+    gap: 30px;      
 }
 
 .card {
@@ -283,14 +310,14 @@ body {
     box-sizing: border-box;
     position: relative;
     transition: 0.2s ease;
-
 }
 
-.card:hover{
+.card:hover {
     transform: translate(-2px, -2px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 
+/* Alternating card colors */
 .card:nth-child(odd), .card:nth-child(odd) p {
     color: #1b1a1a; 
     background-color: #E0E15F;
@@ -309,7 +336,8 @@ body {
     margin: 20px;
 }
 
-.card img{
+/* Decor corner flowers */
+.card img {
     width: 60px;
     height: 50px;
     position: absolute;
@@ -325,45 +353,36 @@ body {
     right: -20px;   
 }
 
-/* Centers the cards and prevents them from spreading too wide */
-#cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;            
-    width: 100%;
-    max-width: 1100px; /* Keeps the group tight */
-    margin: 0 auto; /* Centers the entire group on the screen */
-    gap: 30px;      
-}
-
-/* Moves the outro to the bottom left, aligned with the cards */
+/* Bottom right text block */
 #outro {
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* Aligns the button and text to the left */
+    align-items: flex-end; 
     width: 100%;
-    max-width: 1100px; /* Matches the card container width */
-    margin: 50px auto 0 auto; /* Centers the box and adds space above it */
-    padding-left: 15px; /* Adds that slight padding on the left side */
+    max-width: 1100px; 
+    margin: 50px auto 0 auto; 
+    padding-left: 15px; 
     box-sizing: border-box;
 }
 
-/* Prevents the text from stretching across the screen */
 #outro p {
     text-align: right;
-    max-width: 400px; /* Ensures it "only spans a little bit" */
+    max-width: 400px; 
     font-size: 16px;
     line-height: 1.5;
 }
 
-/*Why US*/
-#why-us{
+
+/* ==========================================================================
+   5. WHY US SECTION
+   ========================================================================== */
+
+#why-us {
     background-color: #EF51B8;
     padding-bottom: 30px;
 }
 
-#why-us h2{
+#why-us h2 {
     text-align: center;
     padding: 20px;
     color: #fefefb;
@@ -371,14 +390,15 @@ body {
     font-family: Frogie;
 }
 
-#why-us h2 span{
+#why-us h2 span {
     background-color: #E0E15F;
     color: #EF51B8;
     padding: 10px;
     display: inline-block;
 }
 
-#grid-container{
+/* 3-Column Grid for Left Cards, Center Image, Right Cards */
+#grid-container {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     padding: 10px 50px;
@@ -389,7 +409,7 @@ body {
 #left-side, #right-side {
     display: flex;
     flex-direction: column;
-    gap: 30px; /* Space between vertically stacked cards */
+    gap: 30px; 
     align-items: center;
 }
 
@@ -408,17 +428,17 @@ body {
     line-height: 1.2;
 }
 
-
-#left-side .card:nth-child(2), #right-side .card:nth-child(2){
+/* Make second cards transparent with borders */
+#left-side .card:nth-child(2), #right-side .card:nth-child(2) {
     background-color: transparent;
     border: 1px solid #fefefb;
 }
 
-#left-side .card:nth-child(2) h3, #right-side .card:nth-child(2) h3{
+#left-side .card:nth-child(2) h3, #right-side .card:nth-child(2) h3 {
     color: #E0E15F;
 }
 
-/* Centers the number perfectly inside the flower */
+/* Number badges positioned on top of the flower icons */
 #grid-container .card span {
     position: absolute;
     top: -15px;
@@ -433,7 +453,6 @@ body {
     align-items: center;
 }
 
-/* Forces the flower to sit in the exact same box as the number */
 #grid-container .card img {
     position: absolute;
     top: -15px;
@@ -444,7 +463,7 @@ body {
     object-fit: contain;
 }
 
-#center img{
+#center img, #bobas {
     width: auto;
     max-width: 90%;
     max-height: 70vh;
@@ -453,17 +472,9 @@ body {
     transform: rotate(25deg); 
 }
 
-#bobas{
-    width: auto;
-    max-width: 90%;
-    max-height: 70vh;
-    height: 500px;
-    z-index: 2;
-}
 
-/*menu*/
 /* ==========================================================================
-   MAIN MENU SECTION
+   6. MAIN MENU SECTION
    ========================================================================== */
 
 #menu {
@@ -492,6 +503,7 @@ body {
     display: inline-block; 
 }
 
+/* Responsive grid for product cards */
 .menu-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -510,6 +522,7 @@ body {
     text-align: center;
 }
 
+/* Image stacking system for blobs behind cups */
 .img-stack {
     position: relative;
     width: 100%;
@@ -540,7 +553,7 @@ body {
     cursor: pointer;
 }
 
-#menu .tea:hover{
+#menu .tea:hover {
      width: 120%;
     max-width: 300px;
 }
@@ -590,7 +603,11 @@ body {
     transform: scale(1.06);
 }
 
-/*Pre-process*/
+
+/* ==========================================================================
+   7. PREPARATION PROCESS
+   ========================================================================== */
+
 #Pre-process h2 {
     margin-top: 60px;   
     text-align: center;
@@ -607,14 +624,7 @@ body {
     display: inline-block; 
 }
 
-#pink-container .banner-img {
-    width: 100%;        
-    height: auto;
-    border-radius: 30px;
-    display: block;
-    border: 5px solid #E0E15F;
-}
-
+/* Main visual banner wrapper */
 #pink-container {
     position: relative;
     width: 80%;          
@@ -624,6 +634,32 @@ body {
     margin-right: auto;
 }
 
+#pink-container .banner-img {
+    width: 100%;        
+    height: auto;
+    border-radius: 30px;
+    display: block;
+    border: 5px solid #E0E15F;
+}
+
+.border-flower {
+    position: absolute;
+    width: 80px;     
+    height: 80px;
+    z-index: 10;      
+}
+
+.flower-left {
+    top: -20px;        
+    left: -20px;       
+}
+
+.flower-right {
+    bottom: -15px;    
+    right: -15px;      
+}
+
+/* Floating descriptive text over banner */
 .step-item {
     position: absolute;
     text-align: center;
@@ -649,36 +685,40 @@ body {
     color: #fefefb;
 }
 
+/* Positioning for each step */
 .step-1 { top: 60%; left: 11%; }
 .step-2 { top: 30%; left: 31%; }
 .step-3 { top: 60%; left: 52%; }
 .step-4 { top: 23%; left: 71%; }
 .step-5 { top: 65%; left: 90%; }
 
-.border-flower {
-    position: absolute;
-    width: 80px;     
-    height: 80px;
-    z-index: 10;      
-}
 
-.flower-left {
-    top: -20px;        
-    left: -20px;       
-}
+/* ==========================================================================
+   8. REVIEWS SECTION
+   ========================================================================== */
 
-.flower-right {
-    bottom: -15px;    
-    right: -15px;      
-}
-
-/*review*/
-#review{
+#review {
     background-color: #EF51B8;
     width: 100%;
 }
 
-.review-cards{
+#review h2 {
+    font-family: 'Frogie', sans-serif;
+    font-size: 50px;
+    color: #fefefb;
+    padding-bottom: 0px;
+    text-align: center;
+    padding-top: 60px;
+}
+
+#review h2 span {
+    background-color: #E0E15F;
+    color: #EF51B8;
+    display: inline-block;
+    padding: 10px;
+}
+
+.review-cards {
     display: flex;
     justify-content: space-between;
     align-items: stretch;            
@@ -715,23 +755,7 @@ body {
     transform: scale(1.06);
 }
 
-#review h2{
-    font-family: 'Frogie', sans-serif;
-    font-size: 50px;
-    color: #fefefb;
-    padding-bottom: 0px;
-    text-align: center;
-    padding-top: 60px;
-}
-
-#review h2 span{
-    background-color: #E0E15F;
-    color: #EF51B8;
-    display: inline-block;
-    padding: 10px;
-}
-
-.re-card img{
+.re-card img {
     width: 60px;
     height: 50px;
     position: absolute;
@@ -747,8 +771,12 @@ body {
     right: -20px;   
 }
 
-/*Location*/
-#location h2{
+
+/* ==========================================================================
+   9. LOCATION SECTION
+   ========================================================================== */
+
+#location h2 {
     font-family: 'Frogie', sans-serif;
     font-size: 50px;
     color: #EF51B8;
@@ -757,30 +785,30 @@ body {
     padding-top: 30px;
 }
 
-#location h2 span{
+#location h2 span {
     background-color: #EF51B8;
     color: #E0E15F;
     display: inline-block;
     padding: 10px;
 }
 
-#loc-container h3{
-    color:#E0E15F;
-    font-size: 30px;
-}
-
 #loc-container {
     display: flex;
     flex-direction: row;
     padding: 0 20px 50px 20px; 
-    justify-content: center; /* Centers the whole container */
+    justify-content: center;
     align-items: stretch;
     color: #fefefb;
     max-width: 1100px;
-    margin: 0 auto; /* Centers the box on the page */
+    margin: 0 auto; 
 }
 
-#loc-container div{
+#loc-container h3 {
+    color: #E0E15F;
+    font-size: 30px;
+}
+
+#loc-container div {
     background-color: #EF51B8;
     border-radius: 20px 0 0 20px;
     border: 3px solid #E0E15F;
@@ -791,10 +819,9 @@ body {
     padding: 10px 40px;
 }
 
-#loc-container p b{
-    color:#E0E15F;
+#loc-container p b {
+    color: #E0E15F;
 }
-
 
 #loc-container li {
     display: flex;
@@ -813,15 +840,11 @@ body {
     min-height: 450px;
 }
 
-#hamburger {
-    display: none;
-    font-size: 30px;
-    color: #fefefb;
-    cursor: pointer;
-    z-index: 100;
-}
 
-/* Footer Container */
+/* ==========================================================================
+   10. FOOTER
+   ========================================================================== */
+
 #footer {
     background-color: #E0E15F; 
     padding: 40px 100px 20px 100px;
@@ -836,6 +859,7 @@ body {
     margin-bottom: 30px;
 }
 
+/* Left side (Logo & Info) */
 #footer .footer-info {
     display: flex;
     flex-direction: column;
@@ -859,6 +883,7 @@ body {
     font-weight: bold;
 }
 
+/* Right side (Nav & Promo) */
 #footer .footer-nav-promo {
     display: flex;
     flex-direction: column;
@@ -886,6 +911,7 @@ body {
     color: #EF51B8;
 }
 
+/* Supplier Promo Card */
 #footer .promo-card {
     background-color: #EF51B8;
     color: #FFFFFF;
@@ -925,7 +951,7 @@ body {
     transform: scale(1.03);
 }
 
-/* Bottom Bar: Copyright */
+/* Bottom Bar Copyright */
 #footer .lower-box {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding-top: 15px;
@@ -938,25 +964,26 @@ body {
     color: #555555;
 }
 
+
 /* ==========================================================================
-   POPUP MODAL SECTION
+   11. MODALS & POPUPS (Product, Checkout, Thank You)
    ========================================================================== */
 
-/* The dark background overlay */
+/* Dark background overlay */
 .modal-overlay {
-    display: none; /* Hidden by default */
+    display: none; 
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-    z-index: 1000; /* Stays on top of everything */
+    z-index: 1000; 
     justify-content: center;
     align-items: center;
 }
 
-/* The Popup Box */
+/* Primary Modal Content Box */
 .modal-content {
     background-color: #fefefb;
     border-radius: 30px;
@@ -970,7 +997,6 @@ body {
     border: 5px solid #EF51B8;
 }
 
-/* The 'X' Close Button */
 .close-btn {
     position: absolute;
     top: 15px;
@@ -988,7 +1014,7 @@ body {
     transform: scale(1.1);
 }
 
-/* Left side container */
+/* Product Modal - Image Area */
 .modal-left {
     background-color: #E0E15F;
     width: 80%;
@@ -1009,7 +1035,7 @@ body {
     object-fit: contain; 
 }
 
-/* Right side with Text */
+/* Product Modal - Text/Add to Cart Area */
 .modal-right {
     width: 60%;
     padding: 40px;
@@ -1032,13 +1058,14 @@ body {
     margin-bottom: 25px;
 }
 
+/* Pricing and Quantity Container */
 .price-quantity-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
     padding-top: 10px;
-    border-top: 1px solid rgba(0,0,0,0.1); /* Adds a subtle divider line */
+    border-top: 1px solid rgba(0,0,0,0.1);
 }
 
 #modal-price {
@@ -1073,7 +1100,7 @@ body {
 }
 
 .quantity-selector button:hover {
-    background-color: #E0E15F; /* Highlights yellow on hover */
+    background-color: #E0E15F;
     color: #fefefb;
 }
 
@@ -1084,7 +1111,7 @@ body {
     color: #1b1a1a;
 }
 
-#add-to-cart-btn{
+#add-to-cart-btn {
     padding: 6px 20px;
     border-radius: 30px;
     font-size: 13px;
@@ -1093,10 +1120,12 @@ body {
     transition: 0.3s ease;
 }
 
+
 /* ==========================================================================
-   CART NAV ICON & BADGE
+   12. CART UI (Buttons, Badge & Slide-out Sidebar)
    ========================================================================== */
 
+/* Navbar Cart Button Styles */
 .open-cart-btn {
     position: relative;
     display: inline-flex;
@@ -1113,6 +1142,7 @@ body {
     text-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 
+/* The red number circle on the cart */
 .cart-badge {
     position: absolute;
     top: -10px;
@@ -1130,16 +1160,15 @@ body {
     pointer-events: none; 
 }
 
-/* --- DESKTOP DISPLAY RULES --- */
+/* Visibility flags for responsive cart */
 #desktop-cart { 
-    display: block; /* Forces the desktop cart to stay visible inside the pill menu */
+    display: block; 
 }
-
 .header-actions {
-    display: none; /* Completely hides the mobile buttons to keep your original layout centered */
+    display: none; 
 }
 
-/* --- 2. The Sidebar Panel --- */
+/* Slide-out Sidebar Panel */
 .cart-sidebar {
     position: fixed;
     top: 0;
@@ -1149,13 +1178,13 @@ body {
     height: 100vh;
     background-color: #fefefb;
     box-shadow: -5px 0 15px rgba(0,0,0,0.2);
-    transition: right 0.4s ease; /* Smooth slide in */
+    transition: right 0.4s ease; /* Smooth slide in animation */
     z-index: 1001;
     display: flex;
     flex-direction: column;
 }
 
-/* When the cart is open, JS adds this class */
+/* Applied by JS to reveal sidebar */
 .cart-sidebar.open {
     right: 0;
 }
@@ -1180,12 +1209,11 @@ body {
     cursor: pointer;
     transition: 0.2s;
 }
-
 .close-cart-btn:hover {
     color: #E0E15F;
 }
 
-/* --- 3. Cart Items --- */
+/* Dynamic Item Container */
 #cart-items-container {
     flex: 1;
     padding: 20px;
@@ -1198,6 +1226,7 @@ body {
     margin-top: 50px;
 }
 
+/* Specific Cart Item Layout */
 .cart-item {
     display: flex;
     align-items: center;
@@ -1234,7 +1263,7 @@ body {
     font-size: 20px;
 }
 
-/* --- 4. Cart Footer (Checkout) --- */
+/* Cart Bottom Checkout Area */
 .cart-footer {
     padding: 20px;
     background-color: #f9f9f9;
@@ -1255,7 +1284,7 @@ body {
     padding: 12px;
 }
 
-/* --- In-Cart Quantity Selector --- */
+/* Quantity Control inside the Cart Sidebar */
 .cart-qty-controls {
     display: flex;
     align-items: center;
@@ -1300,8 +1329,9 @@ body {
     color: #EF51B8 !important;
 }
 
+
 /* ==========================================================================
-   CHECKOUT MODAL SECTION
+   13. CHECKOUT MODAL & THANK YOU SCREEN
    ========================================================================== */
 
 .checkout-content {
@@ -1340,6 +1370,7 @@ body {
     text-align: center;
 }
 
+/* Radio buttons for Delivery / Takeaway */
 .order-type-toggle {
     display: flex;
     justify-content: center;
@@ -1352,11 +1383,11 @@ body {
 
 .order-type-toggle input {
     margin-right: 8px;
-    accent-color: #EF51B8; /* Makes the radio buttons pink */
+    accent-color: #EF51B8;
     transform: scale(1.2);
 }
 
-/* Form Inputs */
+/* Form Fields */
 #checkout-form input[type="text"],
 #checkout-form input[type="tel"],
 #checkout-form input[type="email"],
@@ -1409,7 +1440,7 @@ body {
     color: #1b1a1a;
 }
 
-#place-order-btn{
+#place-order-btn {
     padding: 6px 20px;
     border-radius: 30px;
     font-size: 13px;
@@ -1418,10 +1449,7 @@ body {
     transition: 0.3s ease;
 }
 
-/* ==========================================================================
-   THANK YOU MODAL SECTION
-   ========================================================================== */
-
+/* Thank You Success Modal */
 .thankyou-content {
     background-color: #fefefb;
     border-radius: 30px;
@@ -1431,13 +1459,13 @@ body {
     text-align: center;
     position: relative;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    border: 5px solid #E0E15F; /* Yellow border to contrast the pink checkout */
+    border: 5px solid #E0E15F; /* Yellow border contrast */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Floating animation for the boba cup */
+/* Floating animation for boba cup */
 .thankyou-img {
     width: 120px;
     margin-bottom: 20px;
@@ -1470,8 +1498,9 @@ body {
     padding: 12px;
 }
 
+
 /* ==========================================================================
-   SCROLL TO TOP BUTTON
+   14. UTILITIES (Scroll to top)
    ========================================================================== */
 
 #scroll-top-btn {
@@ -1487,49 +1516,43 @@ body {
     align-items: center;
     text-decoration: none;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    z-index: 999; /* Keeps it above everything else */
-    
-    /* Initially hidden */
+    z-index: 999; 
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
     transition: all 0.3s ease;
 }
 
-/* JavaScript will add this class when the user scrolls down */
+/* Added by JS when scrolling down */
 #scroll-top-btn.show {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
-/* Icon styling using your requested color as the default */
 #scroll-top-btn i {
     font-size: 30px;
-    color: #f9f9f9; /* The specific pink color you requested */
+    color: #f9f9f9; 
     transition: 0.3s ease;
 }
 
-/* Hover effect */
 #scroll-top-btn:hover {
-    transform: translateY(-5px); /* Bounces up slightly */
+    transform: translateY(-5px); 
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
 #scroll-top-btn:hover i {
-    color: #E0E15F; /* Changes to Yummy Tea Yellow on hover */
+    color: #E0E15F;
 }
 
 
 /* ==========================================================================
-   MOBILE RESPONSIVENESS (Max Width: 900px)
+   15. MOBILE RESPONSIVENESS (Max Width: 900px)
    ========================================================================== */
 @media (max-width: 900px) {
-    /* 1. Navbar & Hamburger Menu */
-    /* --- MOBILE DISPLAY RULES --- */
-    
+
     #desktop-cart { 
-        display: none !important; /* Hides the desktop cart so it doesn't duplicate inside the dropdown */
+        display: none !important; 
     }
     
     .header-actions {
@@ -1539,23 +1562,23 @@ body {
     }
     
     #mobile-cart { 
-        display: inline-flex !important; /* Forces the mobile cart to show up next to the hamburger */
+        display: inline-flex !important; 
     }
 
     #hamburger {
-        display: block; /* Show hamburger */
-        font-size: 22px !important; /* Shrunk from 30px */
+        display: block; 
+        font-size: 22px !important; 
     }
 
     .logo {
         height: auto;
-        width: 100px; /* Increased from 10% to make it nice and prominent! */
+        width: 100px; 
         max-width: 180px;
         margin-top: 10px;
     }
 
     .open-cart-btn {
-        font-size: 16px !important; /* Shrunk the cart icon size */
+        font-size: 16px !important; 
     }
 
     .cart-badge {
@@ -1566,7 +1589,7 @@ body {
     }
 
     #navbar nav ul {
-        display: none; /* Hide default nav */
+        display: none; 
         flex-direction: column;
         position: absolute;
         top: 70px;
@@ -1578,11 +1601,12 @@ body {
         gap: 15px;
         box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     }
+
     #navbar nav ul.active {
-        display: flex; /* JavaScript triggers this */
+        display: flex; 
     }
 
-    /* 2. Scale down Text Sizes globally */
+    /* Scaled down global text */
     h2 { font-size: 30px !important; }
     h3 { font-size: 20px !important; }
     p { font-size: 14px !important; }
@@ -1590,10 +1614,10 @@ body {
     .hero-left h2 { font-size: 26px !important; }
     .hero-left span { font-size: 28px !important; }
 
-/* 3. Hero Section Mobile Layout with Stacked, Larger Yummy Tea Text */
+    /* Hero Section Mobile */
     #hero {
         min-height: auto !important;
-        height: 500px; /* Compact mobile banner height */
+        height: 500px; 
         background-size: cover;
         background-position: center;
         padding: 0;
@@ -1611,7 +1635,6 @@ body {
         margin: 0;
     }
 
-    /* Left Side: Text and Button container */
     .hero-left {
         position: absolute;
         left: 5%;
@@ -1623,28 +1646,11 @@ body {
         margin: 0;
     }
 
-    .hero-left h2 {
-        font-size: 15px !important;
-        margin-bottom: 5px;
-    }
+    .hero-left h2 { font-size: 15px !important; margin-bottom: 5px; }
+    .hero-left span { font-size: 16px !important; margin-bottom: 8px; }
+    .hero-left p { font-size: 10px !important; margin-bottom: 12px; line-height: 1.3; }
+    .hero-left button { padding: 5px 16px; font-size: 12px !important; }
 
-    .hero-left span {
-        font-size: 16px !important;
-        margin-bottom: 8px;
-    }
-
-    .hero-left p {
-        font-size: 10px !important;
-        margin-bottom: 12px;
-        line-height: 1.3;
-    }
-
-    .hero-left button {
-        padding: 5px 16px;
-        font-size: 12px !important;
-    }
-
-    /* Right Side: Boba Image */
     #boba {
         position: absolute;
         right: -10%;
@@ -1657,76 +1663,57 @@ body {
         margin: 0;
     }
 
-    /* Stacked YUMMY and TEA text: Yummy upper, Tea lower, with a much bigger font size */
-    #yummy {
-        position: absolute;
-        z-index: 1;
-        top: 28%;
-        left: 5%;
-    }
-
-    #tea {
-        position: absolute;
-        z-index: 2;
-        top: 40%;
-        left: 5%;
-    }
+    #yummy { position: absolute; z-index: 1; top: 28%; left: 5%; }
+    #tea { position: absolute; z-index: 2; top: 40%; left: 5%; }
 
     #hero h1 { 
         display: block !important;
-        font-size: 60px !important; /* Made the font size much bigger */
+        font-size: 60px !important; 
         letter-spacing: 3px !important; 
     }
 
-    /* 4. About Us - 2 Cards per Row */
-    /* Reduce left padding for the About Us section header */
-    #about-us {
-        padding: 30px 15px !important; /* Reduced left/right padding from 20px down to 10px */
-    }
-
-    #text {
-        padding-left: 0 !important; /* Removes any extra indent */
-        margin-left: 0 !important;
-        text-align: left;
-    }
+    /* About Us Mobile */
+    #about-us { padding: 30px 15px !important; }
+    #text { padding-left: 0 !important; margin-left: 0 !important; text-align: left; }
     
     #cards {
         flex-wrap: wrap; 
         gap: 15px;
         padding: 0 10px;
     }
+
     .card {
         max-width: calc(50% - 10px); 
         min-width: 140px;
         padding: 15px 10px;
         min-height: 150px;
     }
+
     .card p { margin: 10px; font-size: 12px !important; }
     .card img { width: 40px; height: 35px; }
 
-    /* ADD THIS: Centers the outro text perfectly on mobile phones */
     #outro {
         align-items: flex-end; 
         padding-left: 0;
         margin-top: 20px;
     }
+
     #outro p {
         text-align: right;
         max-width: 90%;
     }
 
-    /* 5. Why Us - 2 Cards per Row */
-    #center { 
-        display: none; /* Hides boba image */
-    }
+    /* Why Us Mobile */
+    #center { display: none; }
+
     #grid-container {
-        grid-template-columns: 1fr 1fr; /* Puts the left and right sides next to each other */
+        grid-template-columns: 1fr 1fr; 
         gap: 15px;
         padding: 10px 15px;
     }
-    #left-side, #right-side { 
-        gap: 15px; 
-    }
+
+    #left-side, #right-side { gap: 15px; }
+
     #grid-container .card { 
         max-width: 100%; 
         width: 100%; 
@@ -1734,178 +1721,114 @@ body {
         height: 100%;
         padding: 15px 10px;
     }
-    /* Shrink the text and icons slightly so they fit nicely side-by-side */
-    #grid-container .card h3 { 
-        font-size: 14px !important; 
-        margin: 20px 0 5px 0;
-    }
-    #grid-container .card p { 
-        font-size: 12px !important; 
-        margin: 5px;
-    }
+
+    #grid-container .card h3 { font-size: 14px !important; margin: 20px 0 5px 0; }
+    #grid-container .card p { font-size: 12px !important; margin: 5px; }
+
     #grid-container .card span, 
-        #grid-container .card img {
-            width: 45px;
-            height: 45px;
-            top: -10px;
-            left: -10px;
-        }
-        #grid-container .card span {
-            font-size: 16px !important;
-        }
+    #grid-container .card img {
+        width: 45px;
+        height: 45px;
+        top: -10px;
+        left: -10px;
+    }
+
+    #grid-container .card span { font-size: 16px !important; }
 
     #menu h2 {
-        margin-top: 0px; /* Changed from -60px to 0px to push it lower */
+        margin-top: 0px; 
         text-align: center;
         color: #EF51B8;
         font-family: 'Frogie', sans-serif;
         font-size: 40px;
-        margin-bottom: 60px; /* I also reduced this slightly so the gap below the title isn't too huge */
+        margin-bottom: 60px; 
     }
 
-    /* 6. Main Menu - 2 Products per Row */
+    /* Main Menu Mobile */
     .menu-grid {
-        grid-template-columns: repeat(2, 1fr); /* Forces exactly 2 columns */
+        grid-template-columns: repeat(2, 1fr); 
         gap: 10px;
         padding: 0 10px;
     }
-    .pro-card {
-        width: 100%;
-        overflow: visible;
-    }
-    .img-stack { 
-        height: 180px; /* Gives the images enough room vertically */
-    }
-    #menu .blob { 
-        width: 80%; 
-        max-width: 120px; 
-        bottom: 20px;
-    }
-    #menu .tea { 
-        width: 90%; 
-        max-width: 140px; 
-        bottom: 0px;
-    }
-    #menu .tea:hover {
-        width: 105%; /* Subtle hover effect on mobile */
-        max-width: 155px;
-    }
-    .pro-btn { 
-        flex-direction:row; 
-        gap: 8px; 
-        width: 100%; 
-    }
-    .pro-btn button { 
-        padding: 6px; 
-        flex:1;
-        font-size: 12px; 
-    }
-    .pro-card h4 { 
+
+    .pro-card { width: 100%; overflow: visible; }
+    .img-stack { height: 180px; }
+    #menu .blob { width: 80%; max-width: 120px; bottom: 20px; }
+    #menu .tea { width: 90%; max-width: 140px; bottom: 0px; }
+    #menu .tea:hover { width: 105%; max-width: 155px; }
+    
+    .pro-btn { flex-direction: row; gap: 8px; width: 100%; }
+    .pro-btn button { padding: 6px; flex: 1; font-size: 12px; }
+    
+    .pro-card h4 {
         font-size: 13px; 
         margin: 15px 0 10px 0; 
-        min-height: 35px; /* Keeps buttons aligned even if a title is long */
+        min-height: 35px; 
     }
 
-/* 7. Preparation Process (Desktop Look on Mobile) */
+    /* Preparation Process Mobile */
     #pink-container {
         display: block; 
         width: 95%; 
         background: transparent;
         padding: 0;
         border: none;
-        position: relative; /* Ensures absolute children stay inside */
-        overflow: hidden; /* Clips anything trying to slip past the edges */
+        position: relative; 
+        overflow: hidden; 
     }
-    #Pre-process h2 {
-        font-size: 28px !important; 
-    }
-    .banner-img { 
-        display: block !important; 
-        width: 100%;
-        height: auto;
-    }
+
+    #Pre-process h2 { font-size: 28px !important; }
+    .banner-img { display: block !important; width: 100%; height: auto; }
+    .border-flower { display: none !important; }
     
-    .border-flower {
-        display: none !important; /* Hides the extra corner flowers on mobile so they don't break layout */
-    }
-    
-    /* Shrink the text boxes so they fit perfectly over the small mobile image */
-    .step-item { 
-        position: absolute; 
-        width: 19%; 
-    }
-    
-    .step-item h3 { 
-        font-size: 12px !important; 
-        -webkit-text-stroke: 0.5px #E0E15F; 
-        margin-bottom: 2px;
-    }
-    
-    .step-item p { 
-        font-size: 7.5px !important; 
-        line-height: 1.1;
-    }
+    .step-item { position: absolute; width: 19%; }
+    .step-item h3 { font-size: 12px !important; -webkit-text-stroke: 0.5px #E0E15F; margin-bottom: 2px; }
+    .step-item p { font-size: 7.5px !important; line-height: 1.1; }
     
     .step-1 { top: 63%; left: 13%; }
     .step-2 { top: 25%; left: 33%; }
     .step-3 { top: 63%; left: 53%; }
     .step-4 { top: 25%; left: 73%; }
     .step-5 { top: 63%; left: 92%; }
-
     
-    /* 8. Reviews (Smaller Swipeable Carousel) */
+    /* Reviews Carousel Mobile */
     .review-cards { 
         flex-direction: row; 
         overflow-x: auto; 
         scroll-snap-type: x mandatory; 
         padding: 40px 20px 60px 20px; 
-        gap: 15px; /* Slightly tighter gap */
+        gap: 15px; 
         scrollbar-width: none; 
         -ms-overflow-style: none;
     }
-    #review h2 {
-        font-size: 28px !important; 
-    }
-    .review-cards::-webkit-scrollbar {
-        display: none; 
-    }
+
+    #review h2 { font-size: 28px !important; }
+    .review-cards::-webkit-scrollbar { display: none; }
+    
     .re-card { 
         flex: 0 0 auto; 
-        width: 200px; /* Shrunk down for a cuter mobile look! */
-        height: 200px; /* Keeps it perfectly square */
+        width: 200px; 
+        height: 200px; 
         max-width: 200px;
-        padding: 15px; /* Slightly less padding to leave room for text */
+        padding: 15px; 
         scroll-snap-align: center; 
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
     
-    /* Shrink the corner flowers so they match the smaller card */
-    .re-card img {
-        width: 45px;
-        height: 38px;
-        top: -10px;
-        left: -15px;
-    }
-
-    #review .re-card:nth-child(even) img {
-        top: auto;      
-        left: auto;    
-        bottom: -5px;  
-        right: -15px;  
-    }
+    .re-card img { width: 45px; height: 38px; top: -10px; left: -15px; }
+    #review .re-card:nth-child(even) img { top: auto; left: auto; bottom: -5px; right: -15px; }
     
-    /* Shrink text to fit the new smaller square perfectly */
     .re-card h4 { font-size: 13px; margin-bottom: 8px; }
     .re-card p { font-size: 11px !important; margin: 0; line-height: 1.3; }
 
-    /* 9. Location Map - Stacked, Centered, and Shrunk */
+    /* Location Map Mobile */
     #loc-container {
         flex-direction: column; 
         padding: 0 0 40px 0;
-        width: 90%; /* Shrinks the overall width slightly */
-        margin: 0 auto; /* Keeps it perfectly centered */
+        width: 90%; 
+        margin: 0 auto; 
         box-sizing: border-box; 
     }
     
@@ -1914,34 +1837,15 @@ body {
         border: 3px solid #E0E15F;
         border-bottom: none;
         width: 100%;
-        padding: 20px 25px; /* Reduced inner padding so it doesn't feel bulky */
+        padding: 20px 25px; 
         box-sizing: border-box; 
     }
     
-    /* Shrink the Location Fonts */
-    #loc-container h3 {
-        font-size: 20px !important; /* Smaller header */
-        margin-top: 0;
-        margin-bottom: 15px;
-    }
-    
-    #loc-container ul {
-        padding-left: 0; /* Aligns the list perfectly to the left edge */
-    }
-    
-    #loc-container li {
-        font-size: 12px !important; /* Smaller address descriptions */
-        padding-bottom: 15px;
-    }
-
-    #loc-container li b {
-        font-size: 14px !important; /* Slightly larger for the bold street names */
-    }
-    
-    #loc-container p {
-        font-size: 12px !important; /* Smaller working hours text */
-        margin-bottom: 0;
-    }
+    #loc-container h3 { font-size: 20px !important; margin-top: 0; margin-bottom: 15px; }
+    #loc-container ul { padding-left: 0; }
+    #loc-container li { font-size: 12px !important; padding-bottom: 15px; }
+    #loc-container li b { font-size: 14px !important; }
+    #loc-container p { font-size: 12px !important; margin-bottom: 0; }
     
     #loc-container iframe {
         border-radius: 0 0 20px 20px;
@@ -1949,11 +1853,11 @@ body {
         border-top: none;
         width: 100%;
         max-width: 100%; 
-        min-height: 250px; /* Shrunk the map height so it fits on screen better */
+        min-height: 250px; 
         box-sizing: border-box; 
     }
 
-/* 10. Clean Split Footer Layout for Mobile */
+    /* Footer Mobile */
     #footer {
         padding: 30px 15px 20px 15px; 
         box-sizing: border-box;
@@ -1961,7 +1865,6 @@ body {
         overflow: hidden;
     }
 
-    /* Container for top row */
     #footer .upper-box { 
         display: flex;
         flex-direction: column;
@@ -1970,7 +1873,6 @@ body {
         width: 100%;
     }
 
-    /* Forces the top section to act as a 2-column layout (Logo/Info left, Nav right) */
     #footer .upper-box > div {
         display: flex;
         justify-content: space-between;
@@ -1979,7 +1881,6 @@ body {
         gap: 15px;
     }
     
-    /* Left Side: Puts Logo on left and the text stack right next to it */
     #footer .footer-info { 
         display: flex;
         flex-direction: row; 
@@ -1996,7 +1897,6 @@ body {
         flex-shrink: 0;
     }
     
-    /* Stacks email, phone, and social handle vertically in a column */
     .footer-text-stack {
         display: flex;
         flex-direction: column;
@@ -2010,7 +1910,6 @@ body {
         word-break: break-word;
     }
 
-    /* Right Side: Navigation Bar container */
     #footer .footer-nav-promo {
         display: flex;
         flex-direction: column;
@@ -2018,14 +1917,13 @@ body {
         flex: 1;
     }
 
-    /* Navigation Bar on the Right Side - centered column with balanced spacing */
     #footer ul { 
         display: flex;
         flex-direction: row; 
-        align-items: center; /* Centers the links horizontally */
+        align-items: center; 
         justify-content: center;
         gap: 8px; 
-        padding: 0 10px; /* Gives equal padding from left and right */
+        padding: 0 10px; 
         margin: 0 auto;
         width: 100%;
         box-sizing: border-box;
@@ -2033,11 +1931,8 @@ body {
         text-align: center;
     }
 
-    #footer ul a {
-        font-size: 13px !important;
-    }
+    #footer ul a { font-size: 13px !important; }
 
-    /* BOTTOM ROW: Supplier Box sits outside the columns, taking 100% full width */
     #footer .promo-card {
         display: block;
         width: 100% !important; 
@@ -2048,38 +1943,28 @@ body {
         margin-top: 10px;
     }
 
-    #footer .promo-card h3 {
-        font-size: 16px; 
-    }
+    #footer .promo-card h3 { font-size: 16px; }
+    #footer .promo-card p { font-size: 13px !important; margin-bottom: 15px; }
+    #footer .lower-box p { font-size: 11px !important; }
 
-    #footer .promo-card p {
-        font-size: 13px !important; 
-        margin-bottom: 15px;
-    }
-
-    #footer .lower-box p {
-        font-size: 11px !important;
-    }
-
-    /* Forces the cart sidebar to take up 100% of the mobile screen height */
+    /* Modals & Sidebar Mobile */
     .cart-sidebar {
         height: 100vh !important;
         max-height: 100vh !important;
         top: 0;
     }
 
-    /* Product Detail Popup Modal: Picture on top, Details below */
     .modal-content {
-        flex-direction: column !important; /* Stacks top/bottom instead of side-by-side */
+        flex-direction: column !important; 
         height: auto !important;
-        max-height: 90vh !important; /* Prevents it from going off the screen */
+        max-height: 90vh !important; 
         width: 90% !important;
-        overflow-y: auto !important; /* Allows scrolling if content is tall */
+        overflow-y: auto !important; 
     }
 
     .modal-left {
         width: 100% !important;
-        height: 220px !important; /* Gives the image a clean, fixed frame */
+        height: 220px !important; 
         padding: 10px 0 !important;
     }
 
@@ -2094,20 +1979,8 @@ body {
         box-sizing: border-box;
     }
 
-    .modal-right h3 {
-        font-size: 22px !important;
-    }
-
-    .modal-right p {
-        font-size: 13px !important;
-        margin-bottom: 15px !important;
-    }
-
-    .price-quantity-row {
-        margin-bottom: 15px !important;
-    }
-
-    #modal-price {
-        font-size: 20px !important;
-    }
+    .modal-right h3 { font-size: 22px !important; }
+    .modal-right p { font-size: 13px !important; margin-bottom: 15px !important; }
+    .price-quantity-row { margin-bottom: 15px !important; }
+    #modal-price { font-size: 20px !important; }
 }
